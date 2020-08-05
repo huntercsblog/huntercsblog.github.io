@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import Header from "./Header";
 import Footer from "./Footer";
 import { makeStyles } from "@material-ui/styles";
@@ -17,6 +18,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Layout = ({ content, toggleTheme, themeType }) => {
+  const { site } = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+
+  const title = site.siteMetadata.title;
   const classes = useStyles();
 
   return (
@@ -25,7 +37,7 @@ const Layout = ({ content, toggleTheme, themeType }) => {
       <div className={classes.root}>
         <Header toggleTheme={toggleTheme} themeType={themeType} />
         <Container className={classes.main}>{content}</Container>
-        <Footer />
+        <Footer title={title} />
       </div>
     </>
   );
