@@ -1,3 +1,5 @@
+const dir = `${__dirname}/..`;
+
 module.exports = [
   "gatsby-plugin-root-import",
   {
@@ -20,6 +22,19 @@ module.exports = [
           variants: ["800"],
         },
       ],
+    },
+  },
+  {
+    resolve: `gatsby-plugin-mdx`,
+    options: {
+      extensions: [`.mdx`, `.md`],
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      path: `${dir}/content/publications`,
+      name: `publications`,
     },
   },
 ];
