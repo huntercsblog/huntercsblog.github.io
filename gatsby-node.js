@@ -20,25 +20,36 @@ module.exports.onCreateNode = ({ node, actions }) => {
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const articleTemplate = path.resolve("./src/templates/article.jsx");
+
   const res = await graphql(`
     {
-      allMdx {
+      allMdx(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           node {
             fields {
               slug
+            }
+            frontmatter {
+              title
             }
           }
         }
       }
     }
   `);
-  res.data.allMdx.edges.forEach((edge) => {
+  const documents = res.data.allMdx.edges;
+
+  documents.forEach(({ node }, index) => {
+    const prev = index === documents.length - 1 ? null : documents[index + 1];
+    const next = index === 0 ? null : documents[index - 1];
+
     createPage({
       component: articleTemplate,
-      path: `/articles/${edge.node.fields.slug}`,
+      path: `/articles/${node.fields.slug}`,
       context: {
-        slug: edge.node.fields.slug,
+        slug: node.fields.slug,
+        prev,
+        next,
       },
     });
   });
