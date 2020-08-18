@@ -35,8 +35,14 @@ const Layout = ({ content, toggleTheme, themeType }) => {
     <>
       <CssBaseline />
       <div className={classes.root}>
-        <Header toggleTheme={toggleTheme} themeType={themeType} />
-        <Container className={classes.main}>{content}</Container>
+        <Container maxWidth="lg">
+          <Header
+            toggleTheme={toggleTheme}
+            themeType={themeType}
+            title={title}
+          />
+          <main className={classes.main}>{content}</main>
+        </Container>
         <Footer title={title} />
       </div>
     </>
