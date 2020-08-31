@@ -1,6 +1,15 @@
 import deepMerge from "deepmerge";
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 
+/*
+ * Current theme:
+ * --dark-gray: #303030;
+ * --ksu-purple: #602690;
+ * --lavender-floral: #b873f0;
+ * --mauve: #d4affa;
+ * --platinum: #ebeaeb;
+ */
+
 const makeTheme = (variant) => {
   const common = {};
 
@@ -10,18 +19,24 @@ const makeTheme = (variant) => {
 
 const light = {
   palette: {
-    type: "light",
-    primary: {
-      main: "#fff",
+    background: {
+      default: "#ebeaeb",
+    },
+    text: {
+      primary: "#303030",
+      secondary: "#b873f0",
     },
   },
 };
 
 const dark = {
   palette: {
-    type: "dark",
-    primary: {
-      main: "#000",
+    background: {
+      default: "#303030",
+    },
+    text: {
+      primary: "#ebeaeb",
+      secondary: "#d4affa",
     },
   },
 };

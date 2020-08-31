@@ -2,6 +2,7 @@ import React from "react";
 import { Link as GatsbyLink, useStaticQuery, graphql } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
+import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import Typography from "@material-ui/core/Typography";
@@ -19,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
+  },
+  divider: {
+    background: theme.palette.text.secondary,
   },
 }));
 
@@ -43,9 +47,8 @@ const Header = ({ title }) => {
     <>
       <Toolbar className={classes.toolbar}>
         <Typography
-          component="h2"
           variant="h4"
-          color="inherit"
+          color="textSecondary"
           align="center"
           noWrap
           className={classes.toolbarTitle}
@@ -53,7 +56,7 @@ const Header = ({ title }) => {
           {title}
         </Typography>
       </Toolbar>
-      <hr />
+      <Divider classes={{root: classes.divider}} />
       <Toolbar
         component="nav"
         variant="dense"
@@ -63,7 +66,7 @@ const Header = ({ title }) => {
           <Link
             to={`/${normalizeUrl(link)}`}
             component={GatsbyLink}
-            color="inherit"
+            color="textSecondary"
             noWrap
             key={link}
             variant="h6"
