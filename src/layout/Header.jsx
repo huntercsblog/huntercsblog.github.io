@@ -47,16 +47,23 @@ const Header = ({ title, toggleTheme }) => {
     <>
       <Toolbar className={classes.toolbar}>
         <Typography
-          variant="h4"
+          variant="h3"
           color="textSecondary"
           align="center"
           noWrap
           className={classes.toolbarTitle}
         >
-          {title}
+          <Link
+            to="/"
+            component={GatsbyLink}
+            color="inherit"
+            className={classes.link}
+          >
+            {title}
+          </Link>
         </Typography>
       </Toolbar>
-      <Divider classes={{root: classes.divider}} />
+      <Divider classes={{ root: classes.divider }} />
       <Toolbar
         component="nav"
         variant="dense"
@@ -69,7 +76,7 @@ const Header = ({ title, toggleTheme }) => {
             color="textSecondary"
             noWrap
             key={link}
-            variant="h6"
+            variant="h5"
             className={classes.toolbarLink}
           >
             {link}
