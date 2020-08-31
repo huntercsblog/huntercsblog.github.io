@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
-import SearchIcon from "@material-ui/icons/Search";
+import Brightness6Icon from "@material-ui/icons/Brightness6";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 const normalizeUrl = (url) => url.replace(/ /g, "-").toLowerCase();
 
-const Header = ({ title }) => {
+const Header = ({ title, toggleTheme }) => {
   const { site } = useStaticQuery(graphql`
     {
       site {
@@ -76,8 +76,8 @@ const Header = ({ title }) => {
           </Link>
         ))}
 
-        <IconButton>
-          <SearchIcon />
+        <IconButton onClick={toggleTheme}>
+          <Brightness6Icon variant="outline" color="secondary" />
         </IconButton>
       </Toolbar>
     </>

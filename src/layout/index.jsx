@@ -8,7 +8,7 @@ const Index = ({ children, container = false }) => {
   const [theme, setTheme] = useLocalStorage("theme", "dark");
 
   const toggleTheme = () =>
-    setTheme((theme) => (theme === "dark" ? "dark" : "light"));
+    setTheme((theme) => (theme === "dark" ? "light" : "dark"));
 
   return (
     <ThemeProvider theme={themes[theme]}>

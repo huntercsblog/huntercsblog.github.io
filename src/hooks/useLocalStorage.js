@@ -8,7 +8,7 @@ const useLocalStorage = (key, initialValue) => {
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState(() => {
     // Get from local storage then
-    // parse stored json or return initialValue
+    // use stored value or return initialValue
     if (isServer) {
       return initialValue;
     }
@@ -33,7 +33,7 @@ const useLocalStorage = (key, initialValue) => {
       setStoredValue(valueToStore);
       // Save to local storage
       if (!isServer) {
-        window.localStorage.setItem(key, JSON.stringify(valueToStore));
+        window.localStorage.setItem(key, valueToStore);
       }
     } catch (error) {
       console.log(error);

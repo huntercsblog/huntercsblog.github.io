@@ -26,6 +26,9 @@ const light = {
       primary: "#303030",
       secondary: "#b873f0",
     },
+    secondary: {
+      main: "#b873f0",
+    },
   },
 };
 
@@ -37,6 +40,9 @@ const dark = {
     text: {
       primary: "#ebeaeb",
       secondary: "#d4affa",
+    },
+    secondary: {
+      main: "#d4affa",
     },
   },
 };
