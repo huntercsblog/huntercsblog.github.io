@@ -1,6 +1,5 @@
 import React from "react";
 import { ThemeProvider } from "@material-ui/styles";
-import { CssBaseline } from "@material-ui/core";
 
 import themes from "../theme";
 
@@ -14,7 +13,7 @@ const wrapRootElement = ({ element }) => {
     if (!isServer) {
       try {
         const json = window.localStorage.getItem("theme");
-        const item = json ? JSON.parse(json) : theme;
+        const item = JSON.parse(json);
         if (["light", "dark"].includes(item)) {
           theme = item;
         }
@@ -28,10 +27,10 @@ const wrapRootElement = ({ element }) => {
 
   return (
     <ThemeProvider theme={getTheme()}>
-      <CssBaseline />
       {element}
     </ThemeProvider>
   );
 };
 
 export default wrapRootElement;
+
