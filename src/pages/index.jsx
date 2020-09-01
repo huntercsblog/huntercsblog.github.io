@@ -3,8 +3,8 @@ import { graphql, useStaticQuery, Link as GatsbyLink } from "gatsby";
 import Layout from "src/layout";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 import Link from "@material-ui/core/Link";
-import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -12,6 +12,11 @@ const useStyles = makeStyles((theme) => ({
   },
   divider: {
     background: theme.palette.text.secondary,
+  },
+  article: {
+    "& ~ *": {
+      "border-top": `1px solid ${theme.palette.text.secondary}`,
+    },
   },
 }));
 
@@ -43,8 +48,8 @@ const Index = () => {
       <Typography variant="h4" align="center">
         Latest News
       </Typography>
-      {recent.map((elem, i) => (
-        <React.Fragment key={i}>
+      {recent.map((_, i) => (
+        <Box className={classes.article} m={1} p={1} key={i}>
           <Link
             to={`articles/${recent[i].node.fields.slug}`}
             component={GatsbyLink}
@@ -59,11 +64,8 @@ const Index = () => {
               {recent[i].node.timeToRead} min
             </Typography>
             {recent[i].node.excerpt}
-            {i !== recent.length - 1 && (
-              <Divider variant="middle" className={classes.divider} />
-            )}
           </Link>
-        </React.Fragment>
+        </Box>
       ))}
     </Layout>
   );
