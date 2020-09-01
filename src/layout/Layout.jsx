@@ -42,8 +42,8 @@ const Layout = ({ content, toggleTheme, themeType }) => {
             title={title}
           />
           <main className={classes.main}>{content}</main>
+          <Footer title={title} />
         </Container>
-        <Footer title={title} />
       </div>
     </>
   );
