@@ -43,6 +43,7 @@ const Footer = ({ title }) => {
       >
         <Grid item>
           <Link
+            title="Facebook Page"
             href="https://www.facebook.com/huntercsblog"
           >
             <Facebook />
@@ -83,6 +84,16 @@ const Footer = ({ title }) => {
         <Grid item>
           <Link to="/" className={classes.footerLink}>
             Join the team
+          </Link>
+        </Grid>
+        <Grid item>
+          <Link href="https://hunterosc.org" className={classes.footerLink}>
+            Hunter Open Source Club
+          </Link>
+        </Grid>
+        <Grid item>
+          <Link href="https://www.hunteracm.org" className={classes.footerLink}>
+            Hunter ACM
           </Link>
         </Grid>
       </Grid>
