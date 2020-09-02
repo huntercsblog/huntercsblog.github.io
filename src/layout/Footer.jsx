@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Footer = ({ title }) => {
-  const classes = useStyles(); //consumes ThemeProvider 
+  const classes = useStyles();
   return (
     <>
       <hr />
