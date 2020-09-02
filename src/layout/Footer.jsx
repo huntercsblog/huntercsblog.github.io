@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Footer = ({ title }) => {
   const classes = useStyles();
+  const year = (new Date()).getFullYear();
   return (
     <>
       <hr />
@@ -86,7 +87,7 @@ const Footer = ({ title }) => {
         </Grid>
       </Grid>
       <Typography variant="body1" align="center">
-        &copy; {title} 2020 - {(new Date()).getFullYear()}
+        &copy; {title} 2020 {year !== 2020 && ` - ${year}`}
       </Typography>
     </>
   );
