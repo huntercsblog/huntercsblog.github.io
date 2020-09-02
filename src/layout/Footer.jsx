@@ -63,7 +63,7 @@ const Footer = ({ title }) => {
       >
         <Grid item>
           <Link 
-            href="mailto:icarus@huntercs.club"
+            href="/contact"
             className={classes.footerLink}
           >
             Contact
