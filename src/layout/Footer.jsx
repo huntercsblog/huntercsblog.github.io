@@ -63,8 +63,9 @@ const Footer = ({ title }) => {
       >
         <Grid item>
           <Link 
-            href="/contact"
+            to="/contact"
             className={classes.footerLink}
+            component={GatsbyLink}
           >
             Contact
           </Link>
