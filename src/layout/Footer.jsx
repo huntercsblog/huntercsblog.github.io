@@ -6,13 +6,13 @@ import Link from "@material-ui/core/Link";
 import { Facebook, Twitter, RssFeed } from "@material-ui/icons";
 import Grid from "@material-ui/core/Grid";
 
-/* Defines CSS classes to use for all instances of this component. This is
-  actually a custom React hook. */
+
 const useStyles = makeStyles((theme) => ({
   footerLink: {
     color: theme.palette.text.secondary,
   },
 }));
+
 
 const Footer = ({ title }) => {
   const classes = useStyles();
