@@ -31,7 +31,11 @@ const Footer = ({ title }) => {
         spacing={2}
       >
         <Grid item>
-          <Facebook />
+          <Link
+            href="https://www.facebook.com/huntercsblog"
+          >
+            <Facebook />
+          </Link>
         </Grid>
         <Grid item>
           <Twitter />
@@ -49,7 +53,7 @@ const Footer = ({ title }) => {
       >
         <Grid item>
           <Link 
-            to="mailto:max.zlotskiy16@myhunter.cuny.edu"
+            href="mailto:icarus@huntercs.club"
           >
             Contact
           </Link>
