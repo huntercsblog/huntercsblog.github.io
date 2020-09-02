@@ -1,11 +1,21 @@
 import React from "react";
 import { Link as GatsbyLink } from "gatsby";
+import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { Facebook, Twitter, RssFeed } from "@material-ui/icons";
 import Grid from "@material-ui/core/Grid";
 
+/* Defines CSS classes to use for all instances of this component. This is
+  actually a custom React hook. */
+const useStyles = makeStyles((theme) => ({
+  footerLink: {
+    color: theme.palette.text.secondary,
+  },
+}));
+
 const Footer = ({ title }) => {
+  const classes = useStyles(); //consumes ThemeProvider 
   return (
     <>
       <hr />
@@ -54,22 +64,23 @@ const Footer = ({ title }) => {
         <Grid item>
           <Link 
             href="mailto:icarus@huntercs.club"
+            className={classes.footerLink}
           >
             Contact
           </Link>
         </Grid>
         <Grid item>
-          <Link to="/">
+          <Link to="/" className={classes.footerLink}>
             About Us
           </Link>
         </Grid>
         <Grid item>
-          <Link to="/">
+          <Link to="/" className={classes.footerLink}>
             Write For Us
           </Link>
         </Grid>
         <Grid item>
-          <Link to="/">
+          <Link to="/" className={classes.footerLink}>
             Join the team
           </Link>
         </Grid>
