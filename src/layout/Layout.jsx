@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    minHeight: "100vh",
+    minHeight: "85vh",
   },
   main: {
     marginTop: theme.spacing(1.125),
@@ -43,8 +43,10 @@ const Layout = ({ content, toggleTheme, themeType }) => {
           />
           <main className={classes.main}>{content}</main>
         </Container>
-        <Footer title={title} />
       </div>
+      <Container maxWidth="lg">
+        <Footer title={title} />
+      </Container>
     </>
   );
 };
