@@ -65,8 +65,9 @@ const Footer = ({ title }) => {
       >
         <Grid item>
           <Link 
-            href="mailto:icarus@huntercs.club"
+            to="/contact"
             className={classes.footerLink}
+            component={GatsbyLink}
           >
             Contact
           </Link>
