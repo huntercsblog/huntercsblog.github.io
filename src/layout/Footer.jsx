@@ -53,7 +53,9 @@ const Footer = ({ title }) => {
           <Twitter />
         </Grid>
         <Grid item>
-          <RssFeed />
+          <Link title="RSS Feed" href="/rss.xml" type="application/rss+xml">
+            <RssFeed htmlColor="#DE781F" />
+          </Link>
         </Grid>
       </Grid>
       <Grid 
