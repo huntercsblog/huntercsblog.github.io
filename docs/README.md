@@ -6,7 +6,7 @@ The Daedalus News Website
 
 ### Live
 
-The master branch is always live [here](https://stoic-heyrovsky-3da9c7.netlify.app/).
+The master branch is always live [here](https://kkhan01.github.io/red-thread/).
 
 ### Dependencies
 - `yarn`: Installs previous dependencies and updates lockfile (shouldn't be used by everyone).

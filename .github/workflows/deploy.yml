@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: yarn install --frozen-lockfile
     - name: Build public folder
-      run: npm run build
+      run: npm run build -- --prefix-paths
     - name: Run deploy script
       run: |
         git config user.name "Khinshan Khan" && git config user.email "khanshan501@gmail.com"
