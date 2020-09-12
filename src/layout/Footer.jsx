@@ -6,38 +6,27 @@ import Link from "@material-ui/core/Link";
 import { Facebook, Twitter, RssFeed } from "@material-ui/icons";
 import Grid from "@material-ui/core/Grid";
 
-
 const useStyles = makeStyles((theme) => ({
   footerLink: {
     color: theme.palette.text.secondary,
   },
 }));
 
-
 const Footer = ({ title }) => {
   const classes = useStyles();
-  const year = (new Date()).getFullYear();
+  const year = new Date().getFullYear();
   return (
     <>
       <hr />
-      <Typography
-        variant="h5"
-        color="textSecondary"
-        align="center"
-        noWrap
-      >
-        <Link
-          to="/"
-          component={GatsbyLink}
-          color="inherit"
-        >
+      <Typography variant="h5" color="textSecondary" align="center" noWrap>
+        <Link to="/" component={GatsbyLink} color="inherit">
           {title}
         </Link>
       </Typography>
-      <Grid 
-        container 
+      <Grid
+        container
         direction="row"
-        justify="center" 
+        justify="center"
         alignItems="center"
         spacing={2}
       >
@@ -53,20 +42,25 @@ const Footer = ({ title }) => {
           <Twitter />
         </Grid>
         <Grid item>
-          <Link title="RSS Feed" href="/rss.xml" type="application/rss+xml">
+          <Link
+            title="RSS Feed"
+            component={GatsbyLink}
+            to="/rss.xml"
+            type="application/rss+xml"
+          >
             <RssFeed htmlColor="#DE781F" />
           </Link>
         </Grid>
       </Grid>
-      <Grid 
-        container 
+      <Grid
+        container
         direction="row"
-        justify="center" 
+        justify="center"
         alignItems="center"
         spacing={2}
       >
         <Grid item>
-          <Link 
+          <Link
             to="/contact"
             className={classes.footerLink}
             component={GatsbyLink}
