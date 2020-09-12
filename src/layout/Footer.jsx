@@ -73,28 +73,23 @@ const Footer = ({ title }) => {
           </Link>
         </Grid>
         <Grid item>
-          <Link to="/" className={classes.footerLink}>
+          <Link to="/about" className={classes.footerLink} component={GatsbyLink}>
             About Us
           </Link>
         </Grid>
         <Grid item>
-          <Link to="/" className={classes.footerLink}>
+          <Link to="/join" className={classes.footerLink} component={GatsbyLink}>
             Write For Us
           </Link>
         </Grid>
         <Grid item>
-          <Link to="/" className={classes.footerLink}>
+          <Link to="/join" className={classes.footerLink} component={GatsbyLink}>
             Join the team
           </Link>
         </Grid>
         <Grid item>
-          <Link href="https://hunterosc.org" className={classes.footerLink}>
-            Hunter Open Source Club
-          </Link>
-        </Grid>
-        <Grid item>
-          <Link href="https://www.hunteracm.org" className={classes.footerLink}>
-            Hunter ACM
+          <Link href="https://www.huntercs.club" className={classes.footerLink} target="_blank" rel="noopener">
+            Hunter CS Clubs
           </Link>
         </Grid>
       </Grid>
