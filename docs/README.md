@@ -1,4 +1,4 @@
-# red-thread [![Netlify Status](https://api.netlify.com/api/v1/badges/39bf845f-44cb-411e-985e-ed059622ccc8/deploy-status)](https://app.netlify.com/sites/stoic-heyrovsky-3da9c7/deploys)
+# red-thread ![Deploy](https://github.com/kkhan01/red-thread/workflows/Deployment/badge.svg)
 
 The Daedalus News Website
 
