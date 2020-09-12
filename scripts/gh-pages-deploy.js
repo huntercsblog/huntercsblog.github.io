@@ -3,8 +3,6 @@ const execa = require("execa");
 (async () => {
   try {
     await execa("git", ["checkout", "--orphan", "gh-pages"]);
-    console.log("Building...");
-    await execa("npm", ["run", "build"]);
     const folderName = "public"; // deployment folder
     await execa("git", ["--work-tree", folderName, "add", "--all"]);
     await execa("git", ["--work-tree", folderName, "commit", "-m", "gh-pages"]);
