@@ -8,6 +8,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "clean": "gatsby clean",
+    "gh-pages-deploy": "node scripts/gh-pages-deploy.js",
     "test": "echo \"No tests specified.\""
   },
   "dependencies": {

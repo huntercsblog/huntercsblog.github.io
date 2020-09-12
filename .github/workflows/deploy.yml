@@ -1,0 +1,28 @@
+name: Deployment
+on:
+  push:
+    branches:
+      - master
+jobs:
+  gh-pages-deploy:
+    name: Deploying to gh-pages
+    if: "!contains(github.event.head_commit.message, '[skip]')"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install -g yarn
+    - name: Install dependencies
+      run: |
+        yarn install --frozen-lockfile
+        npm run build
+    - name: Run deploy script
+      run: |
+        git config user.name "Khinshan Khan" && git config user.email "khanshan501@gmail.com"
+        npm run gh-pages-deploy
