@@ -37,4 +37,55 @@ module.exports = [
       name: `publications`,
     },
   },
+  {
+    resolve: "gatsby-plugin-feed",
+    options: {
+      query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+      feeds: [
+        {
+          serialize: ({ query: { site, allMdx } }) => {
+            return allMdx.edges.map(edge => {
+              return Object.assign({}, edge.node.frontmatter, {
+                description: edge.node.excerpt,
+                url: site.siteMetadata.siteUrl + "/articles/" + edge.node.fields.slug,
+                guid: site.siteMetadata.siteUrl + "/articles/" + edge.node.fields.slug,
+              })
+            })
+          },
+          //date(formatString: "ddd, DD MMM YYYY ZZ") automatically done by plugin
+          query: `
+            {
+              allMdx(sort: { order: DESC, fields: frontmatter___date }) {
+                edges {
+                  node {
+                    excerpt(truncate: true, pruneLength: 400)
+                    timeToRead
+                    fields { slug }
+                    frontmatter {
+                      title
+                      date
+                    }
+                  }
+                }
+              }
+            }
+          `,
+          output: "/rss.xml",
+          title: "The Icarus' Main Feed",
+          match: "^/articles/",
+        },
+      ],
+    },
+  },
 ];

@@ -1,4 +1,4 @@
-# red-thread [![Netlify Status](https://api.netlify.com/api/v1/badges/39bf845f-44cb-411e-985e-ed059622ccc8/deploy-status)](https://app.netlify.com/sites/stoic-heyrovsky-3da9c7/deploys)
+# red-thread ![Deploy](https://github.com/kkhan01/red-thread/workflows/Deployment/badge.svg)
 
 The Daedalus News Website
 
@@ -6,7 +6,7 @@ The Daedalus News Website
 
 ### Live
 
-The master branch is always live [here](https://stoic-heyrovsky-3da9c7.netlify.app/).
+The master branch is always live [here](https://kkhan01.github.io/red-thread/).
 
 ### Dependencies
 - `yarn`: Installs previous dependencies and updates lockfile (shouldn't be used by everyone).
