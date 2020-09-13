@@ -58,7 +58,10 @@ export default TagsPage;
 
 export const query = graphql`
   query {
-    allMdx(limit: 2000) {
+    allMdx(
+      limit: 2000
+      filter: { fields: { collection: { eq: "publications" } } }
+    ) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

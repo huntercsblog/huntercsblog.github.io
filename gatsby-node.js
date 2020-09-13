@@ -1,22 +1,6 @@
 const path = require("path");
 const moment = require("moment");
 
-module.exports.onCreateNode = ({ node, actions }) => {
-  const { createNode, createNodeField } = actions;
-  if (node.internal.type === "Mdx") {
-    const dateSlug = moment(node.frontmatter.date).format("YYYY/MM/DD");
-    const file = path.basename(
-      node.fileAbsolutePath,
-      path.extname(node.fileAbsolutePath)
-    );
-    const fileSlug =
-      file === "index"
-        ? path.basename(path.dirname(node.fileAbsolutePath))
-        : file;
-    createNodeField({ node, name: "slug", value: `${dateSlug}/${fileSlug}` });
-  }
-};
-
 /**
  * Transforms any string into a URL-safe path component. Spaces replaced with
  * dashes, and everything else is URI encoded (%XX). The url is lower-cased.
@@ -25,6 +9,29 @@ module.exports.onCreateNode = ({ node, actions }) => {
  */
 const normalizeURL = (url) => encodeURIComponent(url.replace(/ /g, "-").toLowerCase());
 
+module.exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNode, createNodeField } = actions;
+  if (node.internal.type === "Mdx") {
+    //associate content with the folder it came from
+    const collection = getNode(node.parent).sourceInstanceName;
+    createNodeField({ node, name: 'collection', value: collection });
+    //fields specific to articles
+    if(collection === "publications") {
+      const dateSlug = moment(node.frontmatter.date).format("YYYY/MM/DD");
+      const file = path.basename(
+        node.fileAbsolutePath,
+        path.extname(node.fileAbsolutePath)
+      );
+      const fileSlug =
+        file === "index"
+          ? path.basename(path.dirname(node.fileAbsolutePath))
+          : file;
+      createNodeField({ node, name: "slug", value: `${dateSlug}/${fileSlug}` });
+    }
+  }
+};
+
+
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const articleTemplate = path.resolve("./src/templates/article.jsx");
@@ -32,7 +39,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
   const res = await graphql(`
     {
-      articles: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+      articles: allMdx(
+        sort: { fields: frontmatter___date, order: DESC },
+        filter: { fields: { collection: {eq: "publications" } } }
+      ) {
         edges {
           node {
             fields {
