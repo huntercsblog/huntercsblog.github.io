@@ -2,7 +2,6 @@ import React from "react";
 import { Link as GatsbyLink, graphql } from "gatsby";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import Link from "@material-ui/core/Link";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -11,13 +10,15 @@ import Layout from "src/layout";
 
 const TaggedContent = ({ data, pageContext }) => {
   const { totalCount } = data.articles;
+  const description = data.tag? data.tag.description : "";
   return (
     <Layout>
-      <Box mb={1}>
+      <Box mb={2}>
         <Typography variant="h4" align="center">
           {pageContext.tag}
         </Typography>
         <Typography variant="h5" align="center">
+          {description && <span>{description}&nbsp;&middot;&nbsp;</span>} 
           {totalCount} {totalCount === 1? "article" : "articles"}
         </Typography>
       </Box>
@@ -45,7 +46,10 @@ export const query = graphql`
   query($tag: String) {
     articles: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      filter: { 
+        frontmatter: { tags: { in: [$tag] } } 
+        fields: { collection: { eq: "publications" } }
+      }
     ) {
       totalCount
       edges {
@@ -61,6 +65,10 @@ export const query = graphql`
           timeToRead
         }
       }
+    }
+    tag: tagsJson(tag: {eq: $tag}) {
+      description
+      related
     }
   }`;
 

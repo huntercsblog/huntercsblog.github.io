@@ -26,6 +26,7 @@
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-root-import": "^2.0.5",
     "gatsby-source-filesystem": "^2.3.23",
+    "gatsby-transformer-json": "^2.4.11",
     "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
