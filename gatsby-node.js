@@ -17,13 +17,22 @@ module.exports.onCreateNode = ({ node, actions }) => {
   }
 };
 
+/**
+ * Transforms any string into a URL-safe path component. Spaces replaced with
+ * dashes, and everything else is URI encoded (%XX). The url is lower-cased.
+ * @param url {string}  arbitrary text
+ * @return {string}     URL-safe string
+ */
+const normalizeURL = (url) => encodeURIComponent(url.replace(/ /g, "-").toLowerCase());
+
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const articleTemplate = path.resolve("./src/templates/article.jsx");
+  const tagsTemplate = path.resolve("./src/templates/tag.jsx");
 
   const res = await graphql(`
     {
-      allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+      articles: allMdx(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           node {
             fields {
@@ -35,9 +44,16 @@ module.exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      tags: allMdx {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
     }
   `);
-  const documents = res.data.allMdx.edges;
+
+  /* Create a page for each article */
+  const documents = res.data.articles.edges;
 
   documents.forEach(({ node }, index) => {
     const prev = index === documents.length - 1 ? null : documents[index + 1];
@@ -53,4 +69,16 @@ module.exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
+
+  /* Create a page for each tag */
+  const tags = res.data.tags.group;
+  tags.forEach((tag) => {
+    createPage({
+      component: tagsTemplate,
+      path: `/tag/${normalizeURL(tag.fieldValue)}`,
+      context: {
+        tag: tag.fieldValue,
+      }
+    });
+  })
 };
