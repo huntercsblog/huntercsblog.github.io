@@ -26,7 +26,28 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const normalizeUrl = (url) => url.replace(/ /g, "-").toLowerCase();
+//see gatsby-node.js
+const normalizeURL = (url) => encodeURIComponent(url.replace(/ /g, "-").toLowerCase());
+
+/**
+ * Renders a nav link (Gatsby Link)
+ * Props:
+ * @children   rendered as visible text
+ * @className  passed as the underlying Link's className
+ * @to         the local url to go to
+ */
+const NavLink = (props) => (
+  <Link
+    to={props.to}
+    component={GatsbyLink}
+    color="textSecondary"
+    noWrap
+    variant="h5"
+    className={props.className}
+  >
+    {props.children}
+  </Link>
+);
 
 const Header = ({ title, toggleTheme }) => {
   const { site } = useStaticQuery(graphql`
@@ -35,6 +56,7 @@ const Header = ({ title, toggleTheme }) => {
         siteMetadata {
           navbar {
             links
+            tags
           }
         }
       }
@@ -42,6 +64,7 @@ const Header = ({ title, toggleTheme }) => {
   `);
 
   const links = site.siteMetadata.navbar.links;
+  const tags = site.siteMetadata.navbar.tags;
   const classes = useStyles();
   return (
     <>
@@ -69,18 +92,11 @@ const Header = ({ title, toggleTheme }) => {
         variant="dense"
         className={classes.toolbarSecondary}
       >
+        {tags.map((link) => (
+          <NavLink className={classes.toolbarLink} to={`/tag/${normalizeURL(link)}`}>{link}</NavLink>
+        ))}
         {links.map((link) => (
-          <Link
-            to={`/${normalizeUrl(link)}`}
-            component={GatsbyLink}
-            color="textSecondary"
-            noWrap
-            key={link}
-            variant="h5"
-            className={classes.toolbarLink}
-          >
-            {link}
-          </Link>
+          <NavLink className={classes.toolbarLink} to={`/${normalizeURL(link)}`}>{link}</NavLink>
         ))}
 
         <IconButton onClick={toggleTheme}>
