@@ -44,8 +44,7 @@ const Footer = ({ title }) => {
         <Grid item>
           <Link
             title="RSS Feed"
-            component={GatsbyLink}
-            to="/rss.xml"
+            href="/rss.xml"
             type="application/rss+xml"
           >
             <RssFeed htmlColor="#DE781F" />
