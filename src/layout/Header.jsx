@@ -93,10 +93,22 @@ const Header = ({ title, toggleTheme }) => {
         className={classes.toolbarSecondary}
       >
         {tags.map((link) => (
-          <NavLink className={classes.toolbarLink} to={`/tag/${normalizeURL(link)}`}>{link}</NavLink>
+          <NavLink 
+            className={classes.toolbarLink} 
+            to={`/tag/${normalizeURL(link)}`}
+            key={link}
+          >
+            {link}
+          </NavLink>
         ))}
         {links.map((link) => (
-          <NavLink className={classes.toolbarLink} to={`/${normalizeURL(link)}`}>{link}</NavLink>
+          <NavLink 
+            className={classes.toolbarLink} 
+            to={`/${normalizeURL(link)}`}
+            key={link}
+          >
+            {link}
+          </NavLink>
         ))}
 
         <IconButton onClick={toggleTheme}>
