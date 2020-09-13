@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     listStyle: "none",
     padding: theme.spacing(1),
+    textAlign: "center",
   },
   chip: {
     margin: theme.spacing(2),
