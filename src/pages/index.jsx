@@ -4,7 +4,9 @@ import Layout from "src/layout";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import Link from "@material-ui/core/Link";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -52,22 +54,19 @@ const Index = () => {
         Latest News
       </Typography>
       {recent.map((_, i) => (
-        <Box className={classes.article} m={1} p={1} key={i}>
-          <Link
-            to={`articles/${recent[i].node.fields.slug}`}
-            component={GatsbyLink}
-            color="inherit"
-            className={classes.link}
-          >
-            <Typography variant="h5" color="textSecondary">
-              {recent[i].node.frontmatter.title}
-            </Typography>
-            <Typography variant="h6">
-              {recent[i].node.frontmatter.date} &middot;{" "}
-              {recent[i].node.timeToRead} min
-            </Typography>
-            {recent[i].node.excerpt}
-          </Link>
+        <Box component={Card} my={1}>
+          <CardActionArea component={GatsbyLink} to={`/articles/${recent[i].node.fields.slug}`}>
+            <CardContent>
+              <Typography variant="h5" color="textSecondary">
+                {recent[i].node.frontmatter.title}
+              </Typography>
+              <Typography variant="h6">
+                {recent[i].node.frontmatter.date} &middot;{" "}
+                {recent[i].node.timeToRead} min
+              </Typography>
+              {recent[i].node.excerpt}
+            </CardContent>
+          </CardActionArea>
         </Box>
       ))}
     </Layout>

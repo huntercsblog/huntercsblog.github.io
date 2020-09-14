@@ -2,7 +2,7 @@ module.exports = {
   title: "The Icarus",
   email: "icarus@huntercs.club",
   description: "A student-run publication from Hunter College covering computer science topics",
-  siteUrl: "https://huntercsblog.github.io/",
+  siteUrl: "http://icarus.huntercs.org/",
   titleTemplate: "%s | The Icarus",
   image: "/images/wide.jpg",
   twitterUsername: "huntercsblog",
