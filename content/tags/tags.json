@@ -1,0 +1,12 @@
+[
+	{
+		"tag": "Silicon Alley",
+		"description": "The NYC tech scene",
+		"related": ["Hunter"]
+	},
+	{
+		"tag": "Daedalus",
+		"description": "Hunter's computer science honors cohort",
+		"related": ["Hunter"]
+	}
+]

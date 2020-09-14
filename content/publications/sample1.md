@@ -1,6 +1,7 @@
 ---
 title: Sample title 1
 date: 2020-08-01
+tags: ["Daedalus"]
 ---
 
 # h1 Heading
