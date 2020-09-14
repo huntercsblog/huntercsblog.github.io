@@ -3,12 +3,16 @@ import { Link as GatsbyLink } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import Divider from "@material-ui/core/Divider";
 import { Facebook, Twitter, RssFeed } from "@material-ui/icons";
 import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
   footerLink: {
     color: theme.palette.text.secondary,
+  },
+  divider: {
+    background: theme.palette.text.secondary,
   },
 }));
 
@@ -17,7 +21,7 @@ const Footer = ({ title }) => {
   const year = new Date().getFullYear();
   return (
     <>
-      <hr />
+      <Divider classes={{root: classes.divider}} />
       <Typography variant="h5" color="textSecondary" align="center" noWrap>
         <Link to="/" component={GatsbyLink} color="inherit">
           {title}
@@ -68,28 +72,18 @@ const Footer = ({ title }) => {
           </Link>
         </Grid>
         <Grid item>
-          <Link to="/" className={classes.footerLink}>
+          <Link to="/about" className={classes.footerLink} component={GatsbyLink}>
             About Us
           </Link>
         </Grid>
         <Grid item>
-          <Link to="/" className={classes.footerLink}>
+          <Link to="/join" className={classes.footerLink} component={GatsbyLink}>
             Write For Us
           </Link>
         </Grid>
         <Grid item>
-          <Link to="/" className={classes.footerLink}>
-            Join the team
-          </Link>
-        </Grid>
-        <Grid item>
-          <Link href="https://hunterosc.org" className={classes.footerLink}>
-            Hunter Open Source Club
-          </Link>
-        </Grid>
-        <Grid item>
-          <Link href="https://www.hunteracm.org" className={classes.footerLink}>
-            Hunter ACM
+          <Link href="https://www.huntercs.club" className={classes.footerLink} target="_blank" rel="noopener">
+            Hunter CS Clubs
           </Link>
         </Grid>
       </Grid>
