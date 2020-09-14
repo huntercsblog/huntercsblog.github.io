@@ -3,6 +3,7 @@ import { Link as GatsbyLink } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+import Divider from "@material-ui/core/Divider";
 import { Facebook, Twitter, RssFeed } from "@material-ui/icons";
 import Grid from "@material-ui/core/Grid";
 
@@ -10,6 +11,9 @@ import Grid from "@material-ui/core/Grid";
 const useStyles = makeStyles((theme) => ({
   footerLink: {
     color: theme.palette.text.secondary,
+  },
+  divider: {
+    background: theme.palette.text.secondary,
   },
 }));
 
@@ -19,7 +23,7 @@ const Footer = ({ title }) => {
   const year = (new Date()).getFullYear();
   return (
     <>
-      <hr />
+      <Divider classes={{root: classes.divider}} />
       <Typography
         variant="h5"
         color="textSecondary"
