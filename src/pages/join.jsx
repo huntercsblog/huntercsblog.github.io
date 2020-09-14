@@ -16,7 +16,11 @@ import { graphql, useStaticQuery } from "gatsby";
 import Layout from "src/layout";
 
 const styles = {
+  grid: {
+    marginBottom: "2em",
+  },
   card: {
+    margin: 16,
     // Use flex layout with column direction for components in the card
     // (CardContent and CardActions)
     display: "flex",
@@ -60,13 +64,9 @@ const JoinUsPage = withStyles(styles)(({ classes }) => {
       </Box>
       <Grid
         container
-        spacing={2}
-        direction="row"
-        justify="flex-start"
-        alignItems="stretch"
+        className={classes.grid}
       >
-        <Grid item xs={12} sm={6} md={4}>
-          <Card className={classes.card}>
+        <Grid item sm={11} md component={Card} className={classes.card}>
             <CardMedia title="Light Bulb Moment">
               <img src={lightBulb} className={classes.cardImage} />
             </CardMedia>
@@ -79,12 +79,10 @@ const JoinUsPage = withStyles(styles)(({ classes }) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" href={"mailto:" + email}>Email</Button>
+              <Button variant="outlined" href={"mailto:" + email}>Submit</Button>
             </CardActions>
-          </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <Card className={classes.card}>
+        <Grid item sm={11} md component={Card} className={classes.card}>
             <CardMedia title="Our Team">
               <img src={team} className={classes.cardImage} />
             </CardMedia>
@@ -97,13 +95,11 @@ const JoinUsPage = withStyles(styles)(({ classes }) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" href={"mailto:" + email}>Email</Button>
+              <Button variant="outlined" href={"mailto:" + email}>Apply</Button>
             </CardActions>
-          </Card>
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <Card className={classes.card}>
-          <CardMedia title="Subscribe">
+        <Grid item sm={11} md component={Card} className={classes.card}>
+            <CardMedia title="Subscribe">
               <RssFeedIcon htmlColor="#DE781F" className={classes.cardIcon} />
             </CardMedia>
             <CardContent>
@@ -115,9 +111,8 @@ const JoinUsPage = withStyles(styles)(({ classes }) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small" href="/rss.xml">RSS</Button>
+              <Button variant="outlined" href="/rss.xml">RSS</Button>
             </CardActions>
-          </Card>
         </Grid>
       </Grid>
     </Layout>
