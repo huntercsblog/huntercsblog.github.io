@@ -37,6 +37,14 @@ module.exports = [
       name: `publications`,
     },
   },
+  "gatsby-transformer-json",
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      path: `${dir}/content/tags`,
+      name: `tags`,
+    },
+  },
   {
     resolve: "gatsby-plugin-feed",
     options: {
