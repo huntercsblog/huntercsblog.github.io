@@ -68,7 +68,7 @@ const JoinUsPage = withStyles(styles)(({ classes }) => {
       >
         <Grid item sm={11} md component={Card} className={classes.card}>
             <CardMedia title="Light Bulb Moment">
-              <img src={lightBulb} className={classes.cardImage} />
+              <img src={lightBulb} className={classes.cardImage} alt="Light bulb" />
             </CardMedia>
             <CardContent>
               <Typography variant="h5">
@@ -84,7 +84,7 @@ const JoinUsPage = withStyles(styles)(({ classes }) => {
         </Grid>
         <Grid item sm={11} md component={Card} className={classes.card}>
             <CardMedia title="Our Team">
-              <img src={team} className={classes.cardImage} />
+              <img src={team} className={classes.cardImage} alt="Our Team" />
             </CardMedia>
             <CardContent>
               <Typography variant="h5">
