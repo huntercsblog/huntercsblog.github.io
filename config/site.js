@@ -7,7 +7,7 @@ module.exports = {
   image: "/images/wide.jpg",
   twitterUsername: "huntercsblog",
   navbar: {
-  	tags: ["Daedalus", "Hunter", "Silicon Alley"],
+  	tags: ["Daedalus", "Hunter", "NYC"],
     links: ["About", "Tags"],
   },
 };
