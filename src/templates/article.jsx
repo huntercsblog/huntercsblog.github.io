@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
+
+import SEO from "src/components/SEO";
 import Layout from "src/layout";
 
 const Article = ({ data, pageContext }) => {
@@ -8,6 +10,11 @@ const Article = ({ data, pageContext }) => {
   console.log(pageContext);
   return (
     <Layout>
+      <SEO 
+        title={frontmatter.title} 
+        description={body.substring(0,140).replace(/^#.*?$/gm, "")} 
+        article={true} 
+      />
       <h1>{frontmatter.title}</h1>
       <p>{frontmatter.date}</p>
       <MDXRenderer>{body}</MDXRenderer>

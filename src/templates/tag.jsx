@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 
+import SEO from "src/components/SEO";
 import Layout from "src/layout";
 
 const TaggedContent = ({ data, pageContext }) => {
@@ -13,6 +14,7 @@ const TaggedContent = ({ data, pageContext }) => {
   const description = data.tag? data.tag.description : "";
   return (
     <Layout>
+      <SEO title={pageContext.tag} description={description} />
       <Box mb={2}>
         <Typography variant="h4" align="center">
           {pageContext.tag}
