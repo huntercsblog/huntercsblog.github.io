@@ -85,11 +85,6 @@ const Footer = ({ title }) => {
           </Link>
         </Grid>
         <Grid item>
-          <Link to="/join" className={classes.footerLink} component={GatsbyLink}>
-            Join the team
-          </Link>
-        </Grid>
-        <Grid item>
           <Link href="https://www.huntercs.club" className={classes.footerLink} target="_blank" rel="noopener">
             Hunter CS Clubs
           </Link>
