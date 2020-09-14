@@ -6,11 +6,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 
+import SEO from "src/components/SEO";
 import Layout from "src/layout";
 
 const ContactPage = () => {
   return (
     <Layout>
+      <SEO title="Contact" />
       <Box mb={1}>
         <Typography variant="h4" align="center">
           Get In Touch

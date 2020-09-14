@@ -3,6 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 
+import SEO from "src/components/SEO";
 import Layout from "src/layout";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +29,7 @@ const AboutPage = () => {
   const classes = useStyles();
   return (
     <Layout>
+      <SEO title="About" />
       <Typography variant="h4" align="center">
         About <i>The Icarus</i>
       </Typography>

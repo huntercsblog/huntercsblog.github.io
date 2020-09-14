@@ -43,7 +43,12 @@ const Footer = ({ title }) => {
           </Link>
         </Grid>
         <Grid item>
-          <Twitter />
+          <Link
+            title="Twitter Page"
+            href="https://twitter.com/huntercsblog"
+          >
+            <Twitter htmlColor="#1DA1F2" />
+          </Link>
         </Grid>
         <Grid item>
           <Link

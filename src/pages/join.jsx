@@ -13,6 +13,7 @@ import team from "../assets/images/team.png";
 import { withStyles } from "@material-ui/core/styles";
 import { graphql, useStaticQuery } from "gatsby";
 
+import SEO from "src/components/SEO";
 import Layout from "src/layout";
 
 const styles = {
@@ -57,6 +58,7 @@ const JoinUsPage = withStyles(styles)(({ classes }) => {
   const email = site.siteMetadata.email;
   return (
     <Layout>
+      <SEO title="Join Us" />
       <Box mb={1}>
         <Typography variant="h4" align="center">
           Get Involved

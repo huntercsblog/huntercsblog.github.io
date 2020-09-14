@@ -96,4 +96,11 @@ module.exports = [
       ],
     },
   },
+  "gatsby-plugin-react-helmet",
+  {
+    resolve: "gatsby-plugin-sitemap",
+    options: {
+      exclude: ["/404.html", "/tag/*"],
+    },
+  },
 ];

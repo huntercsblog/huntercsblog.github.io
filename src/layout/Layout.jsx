@@ -6,6 +6,8 @@ import { makeStyles } from "@material-ui/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 
+import SEO from "../components/SEO";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -33,6 +35,7 @@ const Layout = ({ content, toggleTheme, themeType }) => {
 
   return (
     <>
+      <SEO />
       <CssBaseline />
       <div className={classes.root}>
         <Container maxWidth="lg">
