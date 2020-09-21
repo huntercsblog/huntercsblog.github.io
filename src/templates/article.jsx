@@ -15,7 +15,6 @@ const NavLink = (props) => (
     to={props.to}
     component={GatsbyLink}
     color="textSecondary"
-    noWrap
     variant="body"
   >
     {props.children}
