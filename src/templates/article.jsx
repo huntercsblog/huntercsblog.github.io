@@ -5,6 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import Avatar from '@material-ui/core/Avatar';
 import Grid from '@material-ui/core/Grid';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { makeStyles } from '@material-ui/core/styles';
 
 import SEO from "src/components/SEO";
@@ -17,6 +19,10 @@ const useStyles = makeStyles((theme) => ({
       marginRight: theme.spacing(1),
     },
   },
+  link: {
+    color: theme.palette.text.secondary,
+    verticalAlign: "center",
+  },
   chips: {
     marginRight: theme.spacing(1),
   },
@@ -25,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
 const Article = ({ data, pageContext }) => {
   const { frontmatter, body, timeToRead } = data.mdx;
   const classes = useStyles();
+  const related = [];
+  if(pageContext.prev) related.push(pageContext.prev);
+  if(pageContext.next) related.push(pageContext.next);
   return (
     <Layout>
       <SEO 
@@ -49,7 +58,7 @@ const Article = ({ data, pageContext }) => {
           <Typography variant="subtitle1">
             By {frontmatter.authors.map((a, index, array) => 
               <Fragment>
-                <Link component={GatsbyLink} to={`/author/${a.username}`}>
+                <Link component={GatsbyLink} to={`/author/${a.username}`} className={classes.link}>
                   {a.display_name}
                 </Link>
                 {index === array.length-2 && " and "}
@@ -64,22 +73,28 @@ const Article = ({ data, pageContext }) => {
         {" " + frontmatter.date + " "}&middot;{" " + timeToRead + " min read"}
       </Typography>
       <MDXRenderer>{body}</MDXRenderer>
-      {pageContext.prev && (
-        <Link to={`/articles/${pageContext.prev.node.fields.slug}`} component={GatsbyLink}>
-          <Fragment>
-            {"<--"}
-            {pageContext.prev.node.frontmatter.title}
-          </Fragment>
-        </Link>
-      )}
-      {pageContext.next && (
-        <Link to={`/articles/${pageContext.next.node.fields.slug}`} component={GatsbyLink}>
-          <Fragment>
-            {"-->"}
-            {pageContext.next.node.frontmatter.title}
-          </Fragment>
-        </Link>
-      )}
+      <Grid container justify="space-between">
+        {pageContext.prev && (
+          <Grid item>
+            <Grid container alignItems="center">
+              <ArrowBackIcon />
+              <Link to={`/articles/${pageContext.prev.node.fields.slug}`} component={GatsbyLink} className={classes.link}>
+                {pageContext.prev.node.frontmatter.title}
+              </Link>
+            </Grid>
+          </Grid>
+        )}
+        {pageContext.next && (
+          <Grid item>
+            <Grid container alignItems="center">
+              <Link to={`/articles/${pageContext.next.node.fields.slug}`} component={GatsbyLink} className={classes.link}>
+                {pageContext.next.node.frontmatter.title}
+              </Link>
+              <ArrowForwardIcon />
+            </Grid>
+          </Grid>
+        )}
+      </Grid>
     </Layout>
   );
 };
