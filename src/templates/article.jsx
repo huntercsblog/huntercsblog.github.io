@@ -1,40 +1,61 @@
-import React, {Fragment} from "react";
-import { Link, graphql } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import Box from "@material-ui/core/Box";
+import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
-
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import {graphql, Link as GatsbyLink} from "gatsby";
+import {MDXRenderer} from "gatsby-plugin-mdx";
+import React from "react";
 import SEO from "src/components/SEO";
 import Layout from "src/layout";
 
-const Article = ({ data, pageContext }) => {
-  const { frontmatter, body } = data.mdx;
-  console.log(pageContext);
+
+const NavLink = (props) => (
+  <Link
+    to={props.to}
+    component={GatsbyLink}
+    color="textSecondary"
+    noWrap
+    variant="body"
+  >
+    {props.children}
+  </Link>
+);
+
+const Article = ({data, pageContext}) => {
+  const {frontmatter, body} = data.mdx;
   return (
     <Layout>
-      <SEO 
-        title={frontmatter.title} 
-        description={body.substring(0,140).replace(/^#.*?$/gm, "")} 
-        article={true} 
+      <SEO
+        title={frontmatter.title}
+        description={body.substring(0, 140).replace(/^#.*?$/gm, "")}
+        article={true}
       />
       <Typography variant="h1">{frontmatter.title}</Typography>
       <Typography variant="subtitle1">{frontmatter.date}</Typography>
       <MDXRenderer>{body}</MDXRenderer>
-      {pageContext.prev && (
-        <Link to={`/articles/${pageContext.prev.node.fields.slug}`}>
-          <Fragment>
-            {"<--"}
-            {pageContext.prev.node.frontmatter.title}
-          </Fragment>
-        </Link>
-      )}
-      {pageContext.next && (
-        <Link to={`/articles/${pageContext.next.node.fields.slug}`}>
-          <Fragment>
-            {"-->"}
-            {pageContext.next.node.frontmatter.title}
-          </Fragment>
-        </Link>
-      )}
+      <Box display="flex" justifyContent="space-between">
+        <Box>
+          {pageContext.prev && (
+            <NavLink to={`/articles/${pageContext.prev.node.fields.slug}`}>
+              <Typography color="textSecondary">
+                <ArrowBackIcon fontSize="inherit" />
+                {pageContext.prev.node.frontmatter.title}
+              </Typography>
+            </NavLink>
+          )}
+        </Box>
+        <Box>
+          {pageContext.next && (
+            <NavLink to={`/articles/${pageContext.next.node.fields.slug}`}>
+              <Typography color="textSecondary">
+                {pageContext.next.node.frontmatter.title}
+                <ArrowForwardIcon fontSize="inherit" />
+              </Typography>
+            </NavLink>
+          )}
+        </Box>
+      </Box>
     </Layout>
   );
 };
