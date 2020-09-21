@@ -4,7 +4,6 @@ import Box from "@material-ui/core/Box";
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
-import { makeStyles } from '@material-ui/core/styles';
 import { Link as GatsbyLink } from "gatsby";
 
 /**
@@ -16,20 +15,10 @@ import { Link as GatsbyLink } from "gatsby";
  * Children:
  *   none
  */
-
-const useStyles = makeStyles((theme) => ({
-  title: {
-    borderTop: "1px solid " + theme.palette.text.secondary,
-    borderBottom: "1px solid " + theme.palette.text.secondary,
-    padding: theme.spacing(1),
-  }
-}));
-
 const ArticleList = ({ articles, title }) => {
-  const classes = useStyles();
   return (
     <Fragment>
-      {title && <Typography variant="h5" className={classes.title}>{title}</Typography>}
+      {title && <Typography variant="h4" align="center">{title}</Typography>}
       {articles.map((edge, index) => (
         <Box component={Card} my={1} key={index}>
           <CardActionArea component={GatsbyLink} to={`/articles/${edge.node.fields.slug}`}>
@@ -39,7 +28,7 @@ const ArticleList = ({ articles, title }) => {
               </Typography>
               <Typography variant="h6">
                 <time datetime={edge.node.frontmatter.datetime}>{edge.node.frontmatter.humanDate}</time>
-                &middot;{" "}
+                {" "}&middot;{" "}
                 {edge.node.timeToRead} min read
               </Typography>
               {edge.node.excerpt}
