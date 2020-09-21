@@ -1,0 +1,23 @@
+[
+	{
+		"username": "max",
+		"display_name": "Max Zlotskiy",
+		"description": "Hello! I'm Max. I write articles for The Icarus",
+		"image": "/images/wide.jpg",
+		"badges": ["Editor", "Web Team"]
+	},
+	{
+		"username": "saj",
+		"display_name": "Sajarin",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate metus lectus, ut cursus eros luctus ut. Vestibulum venenatis est vitae faucibus venenatis. Nam fermentum massa **vel** egestas gravida. Aenean a dui lorem. Quisque ut iaculis [risus](http://www.huntercs.org), in pharetra sem. Quisque fermentum dolor sapien, sed vulputate elit interdum in. Proin dapibus sollicitudin eleifend.",
+		"image": null,
+		"badges": ["Editor"]
+	},
+	{
+		"username": "shan",
+		"display_name": "Khinshan Khan",
+		"description": "I do open source stuff",
+		"image": null,
+		"badges": ["Web Team"]
+	}
+]
