@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
 const AuthorPage = ({ data, pageContext }) => {
   const classes = useStyles();
   const { totalCount } = data.articles;
+  const howMany = totalCount > 0? "Articles" : "No articles yet";
   const my = data.my;
   return (
     <Layout>
@@ -50,11 +51,7 @@ const AuthorPage = ({ data, pageContext }) => {
         </Grid>
       </Box>
 
-      <Typography variant="h4" align="center">
-        {data.articles.edges.length > 0? "Articles" : "No articles yet"}
-      </Typography>
-
-      <ArticleList articles={data.articles.edges} />
+      <ArticleList articles={data.articles.edges} title={howMany} />
 
     </Layout>
   );
