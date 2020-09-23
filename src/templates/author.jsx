@@ -45,7 +45,7 @@ const AuthorPage = ({ data, pageContext }) => {
             {my.badges.map((badge, index) => (
               <Chip label={badge} className={classes.chips} key={index} />
             ))}
-            <Chip label={totalCount + " articles"} className={classes.chips} />
+            <Chip label={totalCount + " article" + (totalCount===1?"":"s")} className={classes.chips} />
             <p>{my.description}</p>
           </Grid>
         </Grid>
