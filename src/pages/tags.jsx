@@ -1,13 +1,12 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import Chip from '@material-ui/core/Chip';
 import Paper from '@material-ui/core/Paper';
-import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link as GatsbyLink, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Layout from "src/layout";
+import TagChip from "src/components/tagchip";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,9 +21,6 @@ const useStyles = makeStyles((theme) => ({
     display: "inline"
   },
 }));
-
-//see gatsby-node.js
-const normalizeURL = (url) => encodeURIComponent(url.replace(/ /g, "-").toLowerCase());
 
 const TagsPage = (props) => {
   //a list of all tags ever used in any article
@@ -41,13 +37,11 @@ const TagsPage = (props) => {
       <Paper component="ul" className={classes.root}>
         {tags.map((tag, index) => (
           <li key={index} className={classes.chipContainer}>
-            <Link component={GatsbyLink} to={`/tag/${normalizeURL(tag.fieldValue)}`} underline="none">
-              <Chip 
+              <TagChip 
                 label={`${tag.fieldValue} (${tag.totalCount})`}
+                name={tag.fieldValue}
                 className={classes.chip}
-                clickable={true}
               />
-            </Link>
           </li>
         ))}
       </Paper>

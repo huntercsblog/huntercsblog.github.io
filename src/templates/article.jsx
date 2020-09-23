@@ -10,6 +10,7 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import { makeStyles } from '@material-ui/core/styles';
 
 import SEO from "src/components/SEO";
+import TagChip from "src/components/tagchip";
 import Layout from "src/layout";
 
 const useStyles = makeStyles((theme) => ({
@@ -49,7 +50,7 @@ const Article = ({ data, pageContext }) => {
         <Grid item>
           <div className={classes.avatarContainer}>
           {frontmatter.authors.map(a => 
-            <Avatar alt={a.display_name} src={a.image}>{a.username}</Avatar>
+            <Avatar alt={a.display_name} src={a.image} title={a.display_name}>{a.username.substring(0,1)}</Avatar>
           )}
           </div>
         </Grid>
@@ -73,6 +74,11 @@ const Article = ({ data, pageContext }) => {
         {" " + frontmatter.date + " "}&middot;{" " + timeToRead + " min read"}
       </Typography>
       <MDXRenderer>{body}</MDXRenderer>
+      <p>
+        Tagged: {frontmatter.tags.map(tag => 
+          <TagChip className={classes.chips} name={tag} label={tag} />
+        )}
+      </p>
       <Grid container justify="space-between">
         {pageContext.prev && (
           <Grid item>
@@ -105,6 +111,7 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "MMMM Do, YYYY")
+        tags
         authors {
           username
           display_name
