@@ -1,12 +1,20 @@
 [
 	{
-		"tag": "Silicon Alley",
+		"tag": "NYC",
 		"description": "The NYC tech scene",
-		"related": ["Hunter"]
+		"bg": "rgb(198,246,213)",
+		"color": "#22543d"
 	},
 	{
 		"tag": "Daedalus",
 		"description": "Hunter's computer science honors cohort",
-		"related": ["Hunter"]
+		"bg": "rgb(120,196,217)",
+		"color": "#104351"
+	},
+	{
+		"tag": "Hunter",
+		"description": null,
+		"bg": "#b873f0",
+		"color": "#503d67"
 	}
 ]

@@ -54,7 +54,6 @@ export const query = graphql`
     }
     tag: tagsJson(tag: {eq: $tag}) {
       description
-      related
     }
   }`;
 
