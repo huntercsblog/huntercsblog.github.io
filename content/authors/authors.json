@@ -2,8 +2,8 @@
 	{
 		"username": "max",
 		"display_name": "Max Zlotskiy",
-		"description": "Hello! I'm Max. I write articles for The Icarus",
-		"image": "/images/wide.jpg",
+		"description": "Max Zlotskiy is a student at Hunter College studying film and computer science. He founded The Icarus in his junior year.",
+		"image": "/images/max.jpg",
 		"badges": ["Editor", "Web Team"]
 	},
 	{
@@ -19,5 +19,19 @@
 		"description": "I do open source stuff",
 		"image": null,
 		"badges": ["Web Team"]
+	},
+	{
+		"username": "shakil",
+		"display_name": "Shakil Rafi",
+		"description": "Shakil is a senior at Hunter College. He likes learning about random developer tools that he may or may not ever use.",
+		"image": "/images/shakil.jpg",
+		"badges": ["Web Team"]
+	},
+	{
+		"username": "emily-fang",
+		"display_name": "Emily Fang",
+		"description": "Emily is a junior majoring in computer science. Her strengths are in front-end development and UI/UX.",
+		"image": null,
+		"badges": []
 	}
 ]
