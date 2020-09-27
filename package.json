@@ -1,10 +1,11 @@
 {
-  "name": "red-thread",
+  "name": "the-icarus",
   "private": true,
   "description": "The Daedalus News Website",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "deps": "yarn install --frozen-lockfile",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "clean": "gatsby clean",
@@ -37,9 +38,9 @@
   "devDependencies": {},
   "repositories": {
     "type": "git",
-    "url": "https://github.com/kkhan01/anchorage"
+    "url": "https://github.com/huntercsblog/huntercsblog.github.io"
   },
   "bugs": {
-    "url": "https://github.com/kkhan01/anchorage/issues"
+    "url": "https://github.com/huntercsblog/huntercsblog.github.io/issues"
   }
 }
