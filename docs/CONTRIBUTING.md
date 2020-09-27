@@ -1,4 +1,4 @@
-# Contributing to red-thread
+# Contributing to The Icarus
 
 First thing's first: Thanks for taking the time to contribute! :tada:
 
