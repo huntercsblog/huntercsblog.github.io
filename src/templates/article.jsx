@@ -74,32 +74,34 @@ const Article = ({ data, pageContext }) => {
         <time>{frontmatter.date}</time>&nbsp;&middot;&nbsp;{timeToRead + " min read"}
       </Typography>
       <MDXRenderer>{body}</MDXRenderer>
+      {/*Article Tags*/}
       <p>
         Tagged: {frontmatter.tags.map(tag => 
           <TagChip className={classes.chips} name={tag} label={tag} />
         )}
       </p>
+      {/* Links to other articles */}
       <Grid container justify="space-between">
-        {pageContext.prev && (
-          <Grid item>
+        <Grid item>
+          {pageContext.prev && (
             <Grid container alignItems="center">
               <ArrowBackIcon />
               <Link to={`/articles/${pageContext.prev.node.fields.slug}`} component={GatsbyLink} className={classes.link}>
                 {pageContext.prev.node.frontmatter.title}
               </Link>
             </Grid>
-          </Grid>
-        )}
-        {pageContext.next && (
-          <Grid item>
+          )}
+        </Grid>
+        <Grid item>
+          {pageContext.next && (
             <Grid container alignItems="center">
               <Link to={`/articles/${pageContext.next.node.fields.slug}`} component={GatsbyLink} className={classes.link}>
                 {pageContext.next.node.frontmatter.title}
               </Link>
               <ArrowForwardIcon />
             </Grid>
-          </Grid>
-        )}
+          )}
+        </Grid>
       </Grid>
     </Layout>
   );
