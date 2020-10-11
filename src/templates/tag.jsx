@@ -1,13 +1,11 @@
 import React from "react";
-import { Link as GatsbyLink, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
 
 import SEO from "src/components/SEO";
 import Layout from "src/layout";
+import ArticleList from "src/components/article-list";
 
 const TaggedContent = ({ data, pageContext }) => {
   const { totalCount } = data.articles;
@@ -24,22 +22,7 @@ const TaggedContent = ({ data, pageContext }) => {
           {totalCount} {totalCount === 1? "article" : "articles"}
         </Typography>
       </Box>
-      {data.articles.edges.map((edge) => (
-        <Box component={Card} my={1}>
-          <CardActionArea component={GatsbyLink} to={`/articles/${edge.node.fields.slug}`}>
-            <CardContent>
-              <Typography variant="h5" color="textSecondary">
-                {edge.node.frontmatter.title}
-              </Typography>
-              <Typography variant="h6">
-                {edge.node.frontmatter.date} &middot;{" "}
-                {edge.node.timeToRead} min read
-              </Typography>
-              {edge.node.excerpt}
-            </CardContent>
-          </CardActionArea>
-        </Box>
-      ))}
+      <ArticleList articles={data.articles.edges} />
     </Layout>
   );
 };
@@ -61,7 +44,8 @@ export const query = graphql`
           }
           frontmatter {
             title
-            date(formatString: "YYYY-MM-DD")
+            humanDate: date(formatString: "MMM Do, YYYY")
+            datetime: date(formatString: "YYYY-MM-DD")
           }
           excerpt(truncate: true, pruneLength: 300)
           timeToRead
@@ -70,7 +54,6 @@ export const query = graphql`
     }
     tag: tagsJson(tag: {eq: $tag}) {
       description
-      related
     }
   }`;
 

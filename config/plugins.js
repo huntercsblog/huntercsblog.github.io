@@ -46,6 +46,13 @@ module.exports = [
     },
   },
   {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      path: `${dir}/content/authors`,
+      name: `authors`,
+    },
+  },
+  {
     resolve: "gatsby-plugin-feed",
     options: {
       query: `

@@ -36,12 +36,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const articleTemplate = path.resolve("./src/templates/article.jsx");
   const tagsTemplate = path.resolve("./src/templates/tag.jsx");
+  const authorsTemplate = path.resolve("./src/templates/author.jsx");
 
   const res = await graphql(`
     {
       articles: allMdx(
         sort: { fields: frontmatter___date, order: DESC },
-        filter: { fields: { collection: {eq: "publications" } } }
+        filter: { fields: { collection: { eq: "publications" } } }
       ) {
         edges {
           node {
@@ -57,6 +58,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
       tags: allMdx {
         group(field: frontmatter___tags) {
           fieldValue
+        }
+      }
+      authors: allAuthorsJson {
+        nodes {
+          username
         }
       }
     }
@@ -88,7 +94,38 @@ module.exports.createPages = async ({ graphql, actions }) => {
       path: `/tag/${normalizeURL(tag.fieldValue)}`,
       context: {
         tag: tag.fieldValue,
-      }
+      },
     });
-  })
+  });
+
+  /* Create a page for each author/person */
+  const authors = res.data.authors.nodes;
+  authors.forEach((author) => {
+    createPage({
+      component: authorsTemplate,
+      path: `/author/${author.username}`,
+      context: {
+        username: author.username,
+      },
+    });
+  });
+};
+
+/**
+ * Define the database schema, including foreign key relations
+ */
+module.exports.createSchemaCustomization = ({ actions, schema }) => {
+  const { createTypes } = actions
+  const typeDefs = [
+    `
+    type Mdx implements Node {
+      frontmatter: Frontmatter
+    }
+
+    type Frontmatter {
+      authors: [AuthorsJson] @link(by: "username")
+    }
+    `
+  ];
+  createTypes(typeDefs)
 };

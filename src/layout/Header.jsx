@@ -8,6 +8,8 @@ import Brightness6Icon from "@material-ui/icons/Brightness6";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 
+import Title from "../assets/images/the_icarus_luminari.png";
+
 const useStyles = makeStyles((theme) => ({
   toolbar: {},
   toolbarTitle: {
@@ -82,7 +84,7 @@ const Header = ({ title, toggleTheme }) => {
             color="inherit"
             className={classes.link}
           >
-            {title}
+            <img src={Title} alt={title} />
           </Link>
         </Typography>
       </Toolbar>
