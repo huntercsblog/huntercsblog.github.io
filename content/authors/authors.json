@@ -3,28 +3,28 @@
 		"username": "max",
 		"display_name": "Max Zlotskiy",
 		"description": "Max Zlotskiy is a student at Hunter College studying film and computer science. He founded The Icarus in his junior year.",
-		"image": "/images/max.jpg",
+		"image": "https://www.gravatar.com/avatar/9d6f21cb7ae778620b35cd60b92c318f",
 		"badges": ["Editor", "Web Team"]
 	},
 	{
 		"username": "saj",
 		"display_name": "Sajarin",
-		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate metus lectus, ut cursus eros luctus ut. Vestibulum venenatis est vitae faucibus venenatis. Nam fermentum massa **vel** egestas gravida. Aenean a dui lorem. Quisque ut iaculis [risus](http://www.huntercs.org), in pharetra sem. Quisque fermentum dolor sapien, sed vulputate elit interdum in. Proin dapibus sollicitudin eleifend.",
-		"image": null,
+		"description": "Sajarin is a computer science major at Hunter College. His interests are primarily in ML, NLP and entrepreneurship. He is also interested in applying theory in unorthodox ways to solve big problems. He loves reading and playing table-top games.",
+		"image": "https://github.com/sajarindider.png",
 		"badges": ["Editor"]
 	},
 	{
 		"username": "shan",
 		"display_name": "Khinshan Khan",
 		"description": "I do open source stuff",
-		"image": null,
+		"image": "https://github.com/kkhan01.png",
 		"badges": ["Web Team"]
 	},
 	{
 		"username": "shakil",
 		"display_name": "Shakil Rafi",
 		"description": "Shakil is a senior at Hunter College. He likes learning about random developer tools that he may or may not ever use.",
-		"image": "/images/shakil.jpg",
+		"image": "https://github.com/srafi1.png",
 		"badges": ["Web Team"]
 	},
 	{
