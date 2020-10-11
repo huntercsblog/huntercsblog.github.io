@@ -70,8 +70,8 @@ const Article = ({ data, pageContext }) => {
         </Grid>
       </Grid>
       {/*Date Published*/}
-      <Typography variant="subtitle1" component="time">
-        {" " + frontmatter.date + " "}&middot;{" " + timeToRead + " min read"}
+      <Typography variant="subtitle1">
+        <time>{frontmatter.date}</time>&nbsp;&middot;&nbsp;{timeToRead + " min read"}
       </Typography>
       <MDXRenderer>{body}</MDXRenderer>
       <p>
