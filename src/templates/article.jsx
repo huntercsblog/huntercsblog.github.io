@@ -27,6 +27,11 @@ const useStyles = makeStyles((theme) => ({
   chips: {
     marginRight: theme.spacing(1),
   },
+  main: {
+    "& a": {
+      color: theme.palette.text.secondary,
+    }
+  },
 }));
 
 const Article = ({ data, pageContext }) => {
@@ -73,7 +78,9 @@ const Article = ({ data, pageContext }) => {
       <Typography variant="subtitle1">
         <time>{frontmatter.date}</time>&nbsp;&middot;&nbsp;{timeToRead + " min read"}
       </Typography>
-      <MDXRenderer>{body}</MDXRenderer>
+      <div className={classes.main}>
+        <MDXRenderer>{body}</MDXRenderer>
+      </div>
       {/*Article Tags*/}
       <p>
         Tagged: {frontmatter.tags.map(tag => 
