@@ -16,9 +16,6 @@ const useStyles = makeStyles((theme) => ({
   },
   main: {
     marginTop: theme.spacing(1.125),
-    "& a": {
-      color: theme.palette.text.secondary,
-    },
   },
 }));
 
