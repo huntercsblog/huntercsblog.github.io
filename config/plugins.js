@@ -10,7 +10,7 @@ module.exports = [
       },
     },
   },
-  {
+  /*{
     resolve: "gatsby-plugin-prefetch-google-fonts",
     options: {
       fonts: [
@@ -23,7 +23,7 @@ module.exports = [
         },
       ],
     },
-  },
+  },*/
   {
     resolve: `gatsby-plugin-mdx`,
     options: {
