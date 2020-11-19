@@ -1,4 +1,7 @@
 import React from "react";
+import "fontsource-roboto";
+import "fontsource-roboto/700.css";
+import "fontsource-roboto-slab";
 import { ThemeProvider } from "@material-ui/styles";
 
 import themes from "../theme";
