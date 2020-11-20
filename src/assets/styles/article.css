@@ -1,5 +1,5 @@
 #article-body {
-	font-family: "Roboto";
+	font-family: "Exo 2", sans-serif;
 	font-size: 18px;
 }
 
@@ -38,4 +38,15 @@
 #article-body blockquote {
 	padding-left: 20px;
 	border-left: 3px solid rgba(128,128,128,0.5);
+	font-style: italic;
+}
+
+#article-body h1,
+#article-body h2,
+#article-body h3,
+#article-body h4,
+#article-body h5,
+#article-body h6
+{
+	font-family: "Montserrat", sans-serif;
 }
