@@ -1,5 +1,7 @@
 import deepMerge from "deepmerge";
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import "fontsource-montserrat/600.css"
+import "fontsource-exo-2/400.css";
 
 /*
  * Current theme:
@@ -11,7 +13,19 @@ import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
  */
 
 const makeTheme = (variant) => {
-  const common = {};
+  const heading = {
+    fontFamily: 'Montserrat, sans-serif',
+    fontWeight: 600,
+  };
+  const common = {
+    typography: {
+      fontFamily: '"Exo 2", Roboto, sans-serif',
+      fontWeight: 400,
+      fontSize: 16,
+      h3: heading,
+      h4: heading,
+    }
+  };
 
   const theme = createMuiTheme(deepMerge(common, variant));
   return responsiveFontSizes(theme);
