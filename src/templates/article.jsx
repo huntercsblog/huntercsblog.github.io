@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { makeStyles } from "@material-ui/core/styles";
+import { Disqus, CommentCount } from 'gatsby-plugin-disqus';
 
 import SEO from "src/components/SEO";
 import TagChip from "src/components/tagchip";
@@ -34,12 +35,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Article = ({ data, pageContext }) => {
+const Article = ({ data, pageContext, location }) => {
   const { frontmatter, excerpt, body, timeToRead } = data.mdx;
   const classes = useStyles();
   const related = [];
   if (pageContext.prev) related.push(pageContext.prev);
   if (pageContext.next) related.push(pageContext.next);
+  //needed to initialize Disqus comments, unique for each page
+  const disqusConfig = {
+    url: `${data.site.siteMetadata.siteUrl}${location.pathname}`,
+    identifier: pageContext.slug,
+    title: frontmatter.title
+  };
   return (
     <Layout>
       <SEO title={frontmatter.title} description={excerpt} article={true} />
@@ -83,6 +90,7 @@ const Article = ({ data, pageContext }) => {
         <time>{frontmatter.date}</time>&nbsp;&middot;&nbsp;
         {timeToRead + " min read"}
       </Typography>
+      <CommentCount config={disqusConfig} placeholder="{num} comments" />
       {/*Article Body*/}
       <div className={classes.main} id="article-body">
         <MDXRenderer>{body}</MDXRenderer>
@@ -94,6 +102,8 @@ const Article = ({ data, pageContext }) => {
           <TagChip className={classes.chips} name={tag} label={tag} />
         ))}
       </p>
+      {/* Comments Section */}
+      <Disqus config={disqusConfig} />
       {/* Links to other articles */}
       <Grid container justify="space-between">
         <Grid item>
@@ -147,6 +157,11 @@ export const query = graphql`
       }
       timeToRead
       body
+    }
+    site {
+      siteMetadata {
+        siteUrl
+      }
     }
   }
 `;
