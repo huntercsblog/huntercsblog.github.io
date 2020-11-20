@@ -5039,6 +5039,16 @@ follow-redirects@^1.0.0:
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.12.1.tgz#de54a6205311b93d60398ebc01cf7015682312b6"
   integrity sha512-tmRv0AVuR7ZyouUHLeNSiO6pqulF7dYa3s19c6t+wz9LD69/uSzdMxJ2S91nTI9U3rt/IldxpzMOFejp6f0hjg==
 
+fontsource-exo-2@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/fontsource-exo-2/-/fontsource-exo-2-3.0.5.tgz#4356777c68ea54b29a3d9a38e3d23354fa4e46df"
+  integrity sha512-vRuQJL/GP7+zSzFieTEJgj1LwGRTfFi7NoOjBxEsvSjcpaqzhJBwv6wZbNkudlOfSq4MfzWU5POXmSy+lkGdDA==
+
+fontsource-montserrat@^3.0.9:
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/fontsource-montserrat/-/fontsource-montserrat-3.0.9.tgz#ff614725c420839c4aefbca6f2b49c6224050991"
+  integrity sha512-kSE4GwWoEKJlIp0UyuoYtBvjKv5kwOTK7EvCwdQ7ukvKvgIK1LR5+GpZC5c/juonasNtFTKav67Zd7/C7m+a5w==
+
 fontsource-roboto-slab@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/fontsource-roboto-slab/-/fontsource-roboto-slab-3.0.3.tgz#84907e38d3e43e3b532cf1c5a6d55a1228be077f"

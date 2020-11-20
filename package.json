@@ -20,6 +20,8 @@
     "@mdx-js/react": "^1.6.16",
     "clsx": "^1.1.1",
     "deepmerge": "^4.2.2",
+    "fontsource-exo-2": "^3.0.5",
+    "fontsource-montserrat": "^3.0.9",
     "fontsource-roboto": "^3.0.3",
     "fontsource-roboto-slab": "^3.0.3",
     "gatsby": "^2.24.23",
