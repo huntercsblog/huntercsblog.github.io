@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import SEO from "src/components/SEO";
 import TagChip from "src/components/tagchip";
 import Layout from "src/layout";
+import "../assets/styles/article.css";
 
 const useStyles = makeStyles((theme) => ({
   avatarContainer: {
@@ -82,7 +83,7 @@ const Article = ({ data, pageContext }) => {
         <time>{frontmatter.date}</time>&nbsp;&middot;&nbsp;
         {timeToRead + " min read"}
       </Typography>
-      <div className={classes.main}>
+      <div className={classes.main} id="article-body">
         <MDXRenderer>{body}</MDXRenderer>
       </div>
       {/*Article Tags*/}
