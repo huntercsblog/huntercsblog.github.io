@@ -87,6 +87,11 @@ const Footer = ({ title }) => {
           </Link>
         </Grid>
         <Grid item>
+          <Link to="/privacy" className={classes.footerLink} component={GatsbyLink}>
+            Privacy Policy
+          </Link>
+        </Grid>
+        <Grid item>
           <Link href="https://www.huntercs.club" className={classes.footerLink} target="_blank" rel="noopener">
             Hunter CS Clubs
           </Link>
