@@ -1,0 +1,52 @@
+#article-body {
+	font-family: "Exo 2", sans-serif;
+	font-size: 18px;
+}
+
+@media screen and (min-width: 700px) {
+	#article-body p,
+	#article-body h1,
+	#article-body h2,
+	#article-body h3,
+	#article-body h4,
+	#article-body h5,
+	#article-body h6,
+	#article-body ul,
+	#article-body ol,
+	#article-body blockquote,
+	#article-body pre
+	{
+		width: 680px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	#article-body pre {
+		text-align: left;
+		overflow-x: scroll;
+	}
+}
+
+#article-body code {
+	font-size: 1rem;
+}
+
+#article-body pre {
+	padding: 0.5rem 0.5rem;
+}
+
+#article-body blockquote {
+	padding-left: 20px;
+	border-left: 3px solid rgba(128,128,128,0.5);
+	font-style: italic;
+}
+
+#article-body h1,
+#article-body h2,
+#article-body h3,
+#article-body h4,
+#article-body h5,
+#article-body h6
+{
+	font-family: "Montserrat", sans-serif;
+}

@@ -19,7 +19,7 @@ const AboutPanel = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.aboutPanel}>
-      <Typography variant="h5">{props.title}</Typography>
+      <Typography variant="h4">{props.title}</Typography>
       <Typography variant="body1">{props.children}</Typography>
     </div>
   );
@@ -30,7 +30,7 @@ const AboutPage = () => {
   return (
     <Layout>
       <SEO title="About" />
-      <Typography variant="h4" align="center">
+      <Typography variant="h3" align="center">
         About <i>The Icarus</i>
       </Typography>
       <AboutPanel title="What Is It?">

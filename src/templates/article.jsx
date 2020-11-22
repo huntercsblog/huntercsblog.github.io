@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import SEO from "src/components/SEO";
 import TagChip from "src/components/tagchip";
 import Layout from "src/layout";
+import "../assets/styles/article.css";
 
 const useStyles = makeStyles((theme) => ({
   avatarContainer: {
@@ -21,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   link: {
-    color: theme.palette.text.secondary,
     verticalAlign: "center",
   },
   chips: {
@@ -67,6 +67,7 @@ const Article = ({ data, pageContext }) => {
                   component={GatsbyLink}
                   to={`/author/${a.username}`}
                   className={classes.link}
+                  color="textSecondary"
                 >
                   {a.display_name}
                 </Link>
@@ -82,7 +83,8 @@ const Article = ({ data, pageContext }) => {
         <time>{frontmatter.date}</time>&nbsp;&middot;&nbsp;
         {timeToRead + " min read"}
       </Typography>
-      <div className={classes.main}>
+      {/*Article Body*/}
+      <div className={classes.main} id="article-body">
         <MDXRenderer>{body}</MDXRenderer>
       </div>
       {/*Article Tags*/}
@@ -102,6 +104,7 @@ const Article = ({ data, pageContext }) => {
                 to={`/articles/${pageContext.prev.node.fields.slug}`}
                 component={GatsbyLink}
                 className={classes.link}
+                color="textSecondary"
               >
                 {pageContext.prev.node.frontmatter.title}
               </Link>
@@ -115,6 +118,7 @@ const Article = ({ data, pageContext }) => {
                 to={`/articles/${pageContext.next.node.fields.slug}`}
                 component={GatsbyLink}
                 className={classes.link}
+                color="textSecondary"
               >
                 {pageContext.next.node.frontmatter.title}
               </Link>
