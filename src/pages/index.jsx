@@ -2,6 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery} from "gatsby";
 import Layout from "src/layout";
 import ArticleList from "../components/article-list";
+import SubscribeButton from "../components/SubscribeButton";
 
 
 const Index = () => {
@@ -32,6 +33,7 @@ const Index = () => {
   return (
     <Layout>
       <ArticleList articles={recent} title="Latest News" />
+      <SubscribeButton />
     </Layout>
   );
 };
