@@ -111,9 +111,15 @@ module.exports = [
     },
   },
   {
+    resolve: "gatsby-plugin-disqus",
+    options: {
+      shortname: "the-icarus"
+    }
+  },
+  {
     resolve: "gatsby-plugin-google-gtag",
     options: {
       trackingIds: ["G-678SPSLDGC"],
     }
-  }
+  },
 ];
