@@ -110,4 +110,10 @@ module.exports = [
       exclude: ["/404.html", "/tag/*"],
     },
   },
+  {
+    resolve: "gatsby-plugin-google-gtag",
+    options: {
+      trackingIds: ["G-678SPSLDGC"],
+    }
+  }
 ];
