@@ -40,18 +40,18 @@ On top of that, running in a container provides flexibility in how you run your 
 You can learn how to install Docker [here](https://docs.docker.com/get-docker/).
 
 Installing on Linux is as simple as getting it from your distribution's package manager. The following will work on Ubuntu:
-```
+```bash
 sudo apt-get install docker
 ```
 
 On Linux, you may also have to enable and start the Docker background service like so:
-```
+```bash
 sudo systemctl enable docker
 sudo systemctl start docker
 ```
 
 If you want to follow along and run the same commands as this tutorial, feel free to copy the following into a file named `main.cpp`:
-```
+```cpp
 #include <iostream>
 
 int main() {
@@ -73,7 +73,7 @@ To start off, you're going to need a Dockerfile. Generally, there are three part
 Each Dockerfile starts off with a base image which is the most fundamental part of the environment your project will run in. The image for your project will be built off of this base. For interpreted languages like Python, the base image for that language is necessary. For compiled languages, the language's base image may be necessary for compilation, but just any Linux base image will do for running the program. The most commonly used base image for compiled projects is Alpine Linux. You can browse publicly available images on [Docker Hub](https://hub.docker.com/).
 
 The first line of your Dockerfile will use the `FROM` command and look like this:
-```
+```docker
 FROM base-image:version
 ```
 
@@ -82,7 +82,7 @@ FROM base-image:version
 Next, you have to bring your code into the image and make it runnable. For interpreted languages, this means copying your code into the image and optionally downloading dependencies. For compiled languages, this means copying your code and then compiling it. The two main Dockerfile commands that you will use here are `COPY` for copying files from the local filesystem into the image and `RUN` for running commands in the image. It's also good practice to define a `WORKDIR` because the image will run everything from root (`/`) by default.
 
 These commands look like this:
-```
+```docker
 WORKDIR /app
 COPY src/ folder_in_image/
 RUN g++ src/main.cpp -o main
@@ -91,14 +91,14 @@ RUN g++ src/main.cpp -o main
 ### Entrypoint
 
 The last part to set up is a command that should be run when you run the image which is known as the entrypoint. This is done with the `CMD` command which looks like this:
-```
+```docker
 CMD ["./main"]
 ```
 
 ### Putting it all together
 
 Altogether, here's what a simple Dockerfile would look like for a simple C++ project. Lines that start with `#` are comments.
-```
+```docker
 # Start with a base image that has g++
 # The "latest" version tag is available for every image and
 # it just defaults to the latest version it can find
@@ -119,7 +119,7 @@ CMD ["./main"]
 ```
 
 Here's what a simple Dockerfile could look like for a simple NodeJS project:
-```
+```docker
 # Start with NodeJS v14
 FROM node:14
 
@@ -140,21 +140,21 @@ CMD ["node", "src/index.js"]
 ## Building the image
 
 Now that the Dockerfile is ready, the hard part is out of the way. Simply `cd` into your project directory and run the following command to build the image.
-```
+```bash
 docker build .
 ```
 
 Note: Docker will recursively send everything in the current directory to the Docker daemon as the "build context" so copy the sample C++ code and Dockerfile into a new directory if you're following along.
 
 This will download the `frolvlad/alpine-gxx` base image and then run through the steps in your Dockerfile, but will not redo a step that has been done in the past if nothing relevant to that step has changed. Docker will assign a random name to your image, but you can specify it with the `-t` flag like this:
-```
+```bash
 docker build . -t docker-tutorial
 ```
 
 ## Running the image
 
 Now that you have an image built, you can view available images using:
-```
+```bash
 docker image ls
 ```
 
@@ -166,7 +166,7 @@ frolvlad/alpine-gxx    latest    37291897ce83    3 months ago     205MB
 ```
 
 The image I just built is named `docker-tutorial` because I used the `-t` flag, but no matter what the name may be, you can run it in a container using this command:
-```
+```bash
 docker run docker-tutorial
 ```
 
@@ -178,7 +178,7 @@ Hello, Docker!
 ## Cleaning up
 
 There's one more important step in running an image. When Docker creates a container for running an image, it runs until the program specified in the entrypoint either completes or errors out. At that point, the container is stopped, but it is not deleted. Generally, you can view running Docker containers with `docker ps`, but to view all containers including stopped ones, add the `-a` flag:
-```
+```bash
 docker ps -a
 ```
 
@@ -189,16 +189,16 @@ CONTAINER ID  IMAGE            COMMAND   CREATED        STATUS                  
 ```
 
 If a container ever errors out and you want to inspect its contents to figure out what happened, it'll be available here. This one is fine, though, so I can remove it by specifying the name with this command:
-```
+```bash
 docker rm zealous_heisenberg
 ```
 
-After running `docker ps -a` again, the stopped container should be gone.
+After running `bash±docker ps -a` again, the stopped container should be gone.
 
 ## Re-run anywhere
 
 Now that you've built and run an image locally, you can do it on any other computer that has Docker installed. One way you can do this is by committing your Dockerfile with your code, cloning it on another computer, building it, and running it. However, you can also opt to push your image to [Docker Hub](https://hub.docker.com) and pull it on any other computer. The step-by-step commands of doing this are out of scope for this article, but one more thing you might be interested in is running Docker images that other people have pushed to Docker Hub. For example, let's say you want to run MongoDB on your computer, but don't want to bother installing it and configuring it properly. Luckily for you, MongoDB has an [official image](https://hub.docker.com/_/mongo) published on Docker Hub, so all you have to do is pull (download) it and run it with the following commands:
-```
+```bash
 docker pull mongo
 docker run mongo
 ```
