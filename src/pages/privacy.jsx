@@ -23,9 +23,15 @@ const PrivacyPage = () => {
       <Typography variant="h4">Hit Count</Typography>
       <p>We use Google Analytics to count how many people visit 
       our website. This information is reported anonymously in bulk. 
-      You can <Link color="textSecondary" href="javascript:gaOptout();">click here to opt-out.</Link></p>
+      You can <Link color="textSecondary" onClick={GoogleOptout}>click here to opt-out.</Link></p>
     </Layout>
   );
 };
+
+const GoogleOptout = () => {
+  if(window && window.gaOptout) {
+    window.gaOptout();
+  }
+}
 
 export default PrivacyPage;
