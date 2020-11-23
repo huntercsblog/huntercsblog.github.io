@@ -12,6 +12,7 @@ import { Disqus } from 'gatsby-plugin-disqus';
 
 import SEO from "src/components/SEO";
 import TagChip from "src/components/tagchip";
+import SubscribeButton from "src/components/SubscribeButton";
 import Layout from "src/layout";
 import "../assets/styles/article.css";
 
@@ -136,6 +137,7 @@ const Article = ({ data, pageContext, location }) => {
           )}
         </Grid>
       </Grid>
+      <SubscribeButton />
     </Layout>
   );
 };

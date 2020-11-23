@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import Divider from "@material-ui/core/Divider";
-import { Facebook, Twitter, RssFeed } from "@material-ui/icons";
+import { Facebook, Twitter, RssFeed, Email } from "@material-ui/icons";
 import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles((theme) => ({
@@ -57,6 +57,15 @@ const Footer = ({ title }) => {
             type="application/rss+xml"
           >
             <RssFeed htmlColor="#DE781F" />
+          </Link>
+        </Grid>
+        <Grid item>
+          <Link
+            title="Subscribe to our Newsletter"
+            to="/subscribe"
+            component={GatsbyLink}
+          >
+            <Email htmlColor="#A93F55" />
           </Link>
         </Grid>
       </Grid>
