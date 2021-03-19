@@ -33,9 +33,11 @@
     "gatsby-plugin-react-helmet": "^3.3.10",
     "gatsby-plugin-root-import": "^2.0.5",
     "gatsby-plugin-sitemap": "^2.4.12",
+    "gatsby-remark-prismjs": "^3.8.0",
     "gatsby-source-filesystem": "^2.3.23",
     "gatsby-transformer-json": "^2.4.11",
     "moment": "^2.27.0",
+    "prismjs": "^1.22.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0"
