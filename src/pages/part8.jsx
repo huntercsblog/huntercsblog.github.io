@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const examples = ["reactjs.org", "nextjs.org", "gatsbyjs.com"];
 
 // TODO: (1) fill this list with 7 strings
-const queryResults = [];
+const queryResults = [" "," "," "," "," "," "," "];
 
 
 
@@ -57,7 +57,9 @@ const Part8 = () => {
       </Typography>
       <div>
       {/* TODO: (2) Make a typography with variant="h4" */}
-        <h4>Sign Up For Our Mailing List</h4>
+        <Typography variant="h4" align="center">
+          Sign Up For Out Mailing List
+        </Typography>
       {/* TODO: (3) Change the p tags to Typography with variant="body1" */}
         <p>Itaque earum rerum hic tenetur a sapiente delectus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
         <p>Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. At vero eos et accusamus. Facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.</p>
