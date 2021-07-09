@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const examples = ["reactjs.org", "nextjs.org", "gatsbyjs.com"];
 
 // TODO: (1) fill this list with 7 strings
-const queryResults = [" "," "," "," "," "," "," "];
+const queryResults = ["hello"," are","you","doing ","this ","today ","good"];
 
 
 
@@ -87,7 +87,7 @@ const Part8 = () => {
     {/* TODO: (5) Now do the same with queryResults. Except instead of links, make it generate
       paragraphs. */}
       {queryResults.map(result => (
-        <p></p>
+        <p><li><a href={result}>{result}</a></li></p>
       ))}
     </Layout>
   );
