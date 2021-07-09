@@ -57,10 +57,10 @@ const Part8 = () => {
       </Typography>
       <div>
       {/* TODO: (2) Make a typography with variant="h4" */}
-        <h4>Sign Up For Our Mailing List</h4>
+        <Typography variant = "h4">{/*<h4>*/}Sign Up For Our Mailing List{/*</h4>*/}</Typography>
       {/* TODO: (3) Change the p tags to Typography with variant="body1" */}
-        <p>Itaque earum rerum hic tenetur a sapiente delectus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
-        <p>Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. At vero eos et accusamus. Facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.</p>
+        <Typography variant="body1"> {/*p*/} Itaque earum rerum hic tenetur a sapiente delectus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.{/*</p>*/} </Typography>
+        <Typography variant="body1"> {/*p*/} Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. At vero eos et accusamus. Facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.{/*</p>*/}</Typography>
       {/* TODO: (4) Add a Link component. Ctrl+f for it in about.jsx to see how to use it.*/}
       {/* Make it link to your article. The title attribute is the text that appears when you hover over the link. */}
       {/* The Link component boils down to an <a> tag */}
