@@ -87,7 +87,7 @@ const Part8 = () => {
     {/* TODO: (5) Now do the same with queryResults. Except instead of links, make it generate
       paragraphs. */}
       {queryResults.map(result => (
-        <p><li><a href={result}>{result}</a></li></p>
+        <p><li><a href={result}>{result}</a></li></p> //not sure
       ))}
     </Layout>
   );
