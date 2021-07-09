@@ -72,7 +72,9 @@ const Part8 = () => {
       {/* TODO: (4) Add a Link component. Ctrl+f for it in about.jsx to see how to use it.*/}
       {/* Make it link to your article. The title attribute is the text that appears when you hover over the link. */}
       {/* The Link component boils down to an <a> tag */}
+      <Link title="Time to Hammad" href="articles/2021/07/07/hammad-article" className={classes.coloredLink}>Link to my article</Link>
       </div>
+
     {/* This is how you loop through javascript lists in HTML to declaratively make HTML tags.
         You start with curly braces to signal you're writing Javascript.
         Next, call the map() method on the array variable.
