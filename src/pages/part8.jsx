@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const examples = ["reactjs.org", "nextjs.org", "gatsbyjs.com"];
 
 // TODO: (1) fill this list with 7 strings
-const queryResults = [];
+const queryResults = ["how","are","you","today","I'm","doing","well"];
 
 
 
