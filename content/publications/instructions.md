@@ -1,5 +1,5 @@
 ---
-title: It's Time to Learn React
+title: It's Time to Move Past React
 date: 2021-07-08
 tags: ["Hunter"]
 authors: ["max"]
@@ -67,4 +67,3 @@ You can access an author's page by clicking on their name in an article.
 **Layout, Header and Footer** are in `src/layout/`. Don't worry about `index.jsx`
 
 **Pages** which aren't articles (home page, about page, etc.) are in `src/pages/`. Every `.jsx` file is a page. The URL of `src/pages/yabadabadoo.jsx` will be <http://localhost:8000/yabadabadoo/>
-
