@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const examples = ["reactjs.org", "nextjs.org", "gatsbyjs.com"];
 
 // TODO: (1) fill this list with 7 strings
-const queryResults = [];
+const queryResults = ["asdfa", "adfasdf", "adfasdf", "sfasdf", "asfasfd", "sfasdf", "asfasfd"];
 
 
 
@@ -41,7 +41,7 @@ const queryResults = [];
         }
       }
 */
-//But it's shorter to make a function. 
+//But it's shorter to make a function.
 const Part8 = () => {
   //This is how we inject CSS from above
   const classes = useStyles();
@@ -71,7 +71,7 @@ const Part8 = () => {
         The map() method takes one parameter: a function. This function is like the body
         of a for loop. However, it must return something to render */}
     {/* "ex" is a parameter which holds each string, like in a for loop.
-        The function returns JSX (html tag made through javascript). 
+        The function returns JSX (html tag made through javascript).
         We insert javascript variables into JSX with curly braces.
         Here I am setting the href and text of the link to the variable "ex"*/}
       <ul>
