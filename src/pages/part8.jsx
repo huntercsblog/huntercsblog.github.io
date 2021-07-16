@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 const examples = ["reactjs.org", "nextjs.org", "gatsbyjs.com"];
 
 // TODO: (1) fill this list with 7 strings
-const queryResults = [];
+const queryResults = ["apples", "bananas", "oranges", "soccer", "dolphins", "cats", "iPads"];
 
 
 
@@ -57,13 +57,19 @@ const Part8 = () => {
       </Typography>
       <div>
       {/* TODO: (2) Make a typography with variant="h4" */}
-        <h4>Sign Up For Our Mailing List</h4>
+      <Typography variant = "h4">
+        Sign Up For Our Mailing List
+      </Typography>
       {/* TODO: (3) Change the p tags to Typography with variant="body1" */}
-        <p>Itaque earum rerum hic tenetur a sapiente delectus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
-        <p>Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. At vero eos et accusamus. Facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.</p>
+      <Typography variant = "body1">
+        Itaque earum rerum hic tenetur a sapiente delectus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.
+        Non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. At vero eos et accusamus. Facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam.
+      </Typography>
       {/* TODO: (4) Add a Link component. Ctrl+f for it in about.jsx to see how to use it.*/}
       {/* Make it link to your article. The title attribute is the text that appears when you hover over the link. */}
       {/* The Link component boils down to an <a> tag */}
+      {/* <Link title="The Hunter Envoy" href="https://thehunterenvoy.wordpress.com" className={classes.coloredLink}>The Hunter Envoy</Link> */}
+      <Link title="My article" href = "http://localhost:8000/articles/2021/07/08/doe-looks-to-expand-cs-education" >My Article</Link>
       </div>
     {/* This is how you loop through javascript lists in HTML to declaratively make HTML tags.
         You start with curly braces to signal you're writing Javascript.
@@ -81,9 +87,11 @@ const Part8 = () => {
       </ul>
     {/* TODO: (5) Now do the same with queryResults. Except instead of links, make it generate
       paragraphs. */}
+      <ul>
       {queryResults.map(result => (
-        <p></p>
+        <li> <p>{result}</p> </li>
       ))}
+      </ul>
     </Layout>
   );
 };
