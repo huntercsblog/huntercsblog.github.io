@@ -28,7 +28,7 @@ $ git commit -m "Changed title"
 5. Make an entry for yourself in the authors file. Add it to the bottom. Remember the comma. If you need to learn JSON, do so. Image is optional. Come up with a unique description like the others.
 5. Test your changes by going to <http://localhost:8000/author/YOUR_USERNAME> Then enter these commands:
 ```bash
-$ git add content/publications/instructions.md
+$ git add content/authors/authors.json
 $ git commit -m "Added myself as author"
 ```
 6. Make an article. Attribute yourself as the author.
