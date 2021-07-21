@@ -9,6 +9,9 @@ import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 
 import Title from "../assets/images/the_icarus_luminari.png";
+import "../assets/styles/mobile-nav.css";
+
+
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {},
@@ -16,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
   toolbarSecondary: {
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     overflowX: "auto",
   },
   toolbarLink: {
@@ -25,6 +28,35 @@ const useStyles = makeStyles((theme) => ({
   },
   divider: {
     background: theme.palette.text.secondary,
+  },
+  navbutton:{
+    display:"none",
+  },
+  "@media (max-width: 590px)": {
+    toolbarTitle: {
+      display: "flex",
+      justifyContent: "flex-start",
+    },
+    toolbarSecondary:{
+      width: "100%",
+      backgroundColor: theme.palette.background.default,
+      flexDirection: "column",
+      justifyContent: "center",
+      alignContent: "center",
+      position: "absolute",
+      display: "column",
+    },
+    navbutton:{
+      display:"inline",
+    },
+    hamburger: {
+      display:"block",
+      backgroundColor: theme.palette.text.secondary,
+      width: "40px",
+      height: "6px",
+      borderRadius: "5px",
+      margin: "7px 0px",
+    },
   },
 }));
 
@@ -87,12 +119,38 @@ const Header = ({ title, toggleTheme }) => {
             <img src={Title} alt={title} />
           </Link>
         </Typography>
+        <Typography 
+          variant="button"
+          color="secondary"
+          align="right"
+          nowrap
+          className={classes.navbutton}
+          id = "navbutton"
+          onClick = {() => {"toolbarsecondary".toggle('active');}}
+        >
+          <Typography
+          className={classes.hamburger}
+          id = "topline"
+          >
+          </Typography>
+          <Typography
+          className={classes.hamburger}
+          id = "middleline"
+          >
+          </Typography>
+          <Typography
+          className={classes.hamburger}
+          id = "bottomline"
+          >
+          </Typography>
+        </Typography>
       </Toolbar>
       <Divider classes={{ root: classes.divider }} />
       <Toolbar
         component="nav"
         variant="dense"
         className={classes.toolbarSecondary}
+        id = "toolbarsecondary"
       >
         {tags.map((link) => (
           <NavLink 
