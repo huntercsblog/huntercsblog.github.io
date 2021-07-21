@@ -15,6 +15,7 @@ import { Link as GatsbyLink } from "gatsby";
  * Children:
  *   none
  */
+
 const ArticleList = ({ articles, title }) => {
   return (
     <Fragment>
