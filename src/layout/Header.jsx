@@ -119,7 +119,7 @@ const Header = ({ title, toggleTheme }) => {
             <img src={Title} alt={title} />
           </Link>
         </Typography>
-        <Typography 
+        <Typography
           variant="button"
           color="secondary"
           align="right"
