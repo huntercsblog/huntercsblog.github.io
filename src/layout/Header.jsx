@@ -7,6 +7,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Brightness6Icon from "@material-ui/icons/Brightness6";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
+// import Box from "@material-ui/core/Box";
+import SubscribeButton from "../components/SubscribeButton";
 
 import Title from "../assets/images/the_icarus_luminari.png";
 
@@ -88,6 +90,34 @@ const Header = ({ title, toggleTheme }) => {
           </Link>
         </Typography>
       </Toolbar>
+      <Toolbar className={classes.toolbarSecondary}>
+        <Link
+          title="Subscribe to our Newsletter"
+          to="/subscribe"
+          component={GatsbyLink}
+        >
+          Subscribe
+        </Link>
+        <Link
+          title="Facebook Page"
+          href="https://www.facebook.com/huntercsblog"
+        >
+          Facebook
+        </Link>
+        <Link
+          title="Twitter Page"
+          href="https://twitter.com/huntercsblog"
+        >
+          Twitter
+        </Link>
+        <Link
+          title="RSS Feed"
+          href="/rss.xml"
+          type="application/rss+xml"
+        >
+          Rss Feed
+        </Link>
+      </Toolbar>
       <Divider classes={{ root: classes.divider }} />
       <Toolbar
         component="nav"
@@ -116,6 +146,8 @@ const Header = ({ title, toggleTheme }) => {
         <IconButton onClick={toggleTheme}>
           <Brightness6Icon variant="outline" color="secondary" />
         </IconButton>
+      {/* <SubscribeButton /> */}
+
       </Toolbar>
     </>
   );
