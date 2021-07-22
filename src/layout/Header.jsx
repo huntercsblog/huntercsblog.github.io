@@ -75,7 +75,7 @@ const NavLink = (props) => (
     to={props.to}
     component={GatsbyLink}
     color="textSecondary"
-    noWrap
+    white-space = "nowrap"
     variant="h5"
     className={props.className}
   >
@@ -107,7 +107,7 @@ const Header = ({ title, toggleTheme }) => {
           variant="h3"
           color="textSecondary"
           align="center"
-          noWrap
+          white-space =  "nowrap"
           className={classes.toolbarTitle}
         >
           <Link
@@ -123,10 +123,10 @@ const Header = ({ title, toggleTheme }) => {
           variant="button"
           color="secondary"
           align="right"
-          nowrap
+          white-space = "nowrap"
           className={classes.navbutton}
           id = "navbutton"
-          onClick = {() => {"toolbarsecondary".toggle('active');}}
+          onClick = {() => {'toolbarsecondary'.toggle('active');}}
         >
           <Typography
           className={classes.hamburger}
