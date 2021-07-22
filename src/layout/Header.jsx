@@ -19,10 +19,10 @@ const useStyles = makeStyles((theme) => ({
   toolbarTitle: {
     flex: 1,
   },
- //toolbarsecondary: {
-   // justifyContent: "space-around",
-  //  overflowX: "auto",
- // },
+ toolbarSecondary: {
+    justifyContent: "space-around",
+    overflowX: "auto",
+  },
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
@@ -37,16 +37,15 @@ const useStyles = makeStyles((theme) => ({
     },
     toolbarsecondary:{
       display: "flex",
-      justifyContent: "space-around",
-      overflowX: "auto",
+    //  justifyContent: "space-around",
+    //  overflowX: "auto",
       width: "100%",
       backgroundColor: theme.palette.text.default,
-      opacity: "1",
       flexDirection: " column",
-      justifyContent: "center",
+     // justifyContent: "center",
       alignContent: "center",
       position: "absolute",
-      display: "column",
+    //  display: "column",
     
     },
     navbutton:{
@@ -190,3 +189,8 @@ const Header = ({ title, toggleTheme }) => {
 };
 
 export default Header;
+
+/*
+  The issue right now is that since i changed the navbar class toolbarsecondary instead of toolbarSecondary on line 161, on the desktop view, the tags are not equally apart. On the mobile view it is fine.
+
+*/
