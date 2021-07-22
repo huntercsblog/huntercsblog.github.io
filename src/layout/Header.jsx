@@ -10,7 +10,7 @@ import Link from "@material-ui/core/Link";
 
 import Title from "../assets/images/the_icarus_luminari.png";
 import "../assets/styles/mobile-nav.css";
-import { getElementById } from "min-document";
+//import { getElementById } from "min-document";
 
 
 
@@ -19,10 +19,10 @@ const useStyles = makeStyles((theme) => ({
   toolbarTitle: {
     flex: 1,
   },
-  toolbarSecondary: {
-    justifyContent: "space-around",
-    overflowX: "auto",
-  },
+ //toolbarsecondary: {
+   // justifyContent: "space-around",
+  //  overflowX: "auto",
+ // },
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
@@ -35,14 +35,19 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       justifyContent: "flex-start",
     },
-    toolbarSecondary:{
+    toolbarsecondary:{
+      display: "flex",
+      justifyContent: "space-around",
+      overflowX: "auto",
       width: "100%",
-      backgroundColor: theme.palette.background.default,
-      flexDirection: "column",
+      backgroundColor: theme.palette.text.default,
+      opacity: "1",
+      flexDirection: " column",
       justifyContent: "center",
       alignContent: "center",
       position: "absolute",
       display: "column",
+    
     },
     navbutton:{
       display:"inline",
@@ -73,7 +78,7 @@ const NavLink = (props) => (
     to={props.to}
     component={GatsbyLink}
     color="textSecondary"
-    white-space = "nowrap"
+    noWrap
     variant="h5"
     className={props.className}
   >
@@ -105,7 +110,7 @@ const Header = ({ title, toggleTheme }) => {
           variant="h3"
           color="textSecondary"
           align="center"
-          white-space =  "nowrap"
+          noWrap
           className={classes.toolbarTitle}
         >
           <Link
@@ -121,14 +126,16 @@ const Header = ({ title, toggleTheme }) => {
           variant="button"
           color="secondary"
           align="right"
-          white-space = "nowrap"
+          noWrap
           className={classes.navbutton}
           id = "navbutton"
           onClick = {() => {
-            if(document.getElementById("toolbarsecondary").style.display === "none"){
-            document.getElementById("toolbarsecondary").style.display = "column";
-          }else{
-            document.getElementById("toolbarsecondary").style.display = "none";
+            let x = "toolbarsecondary"
+            if(document.getElementById(x).style.display === "flex"){
+            document.getElementById(x).style.display = "none";
+
+          }else {
+            document.getElementById(x).style.display = "flex";
           }}}
         >
           <Typography
@@ -152,7 +159,7 @@ const Header = ({ title, toggleTheme }) => {
       <Toolbar
         component="nav"
         variant="dense"
-        className={classes.toolbarSecondary}
+        className={classes.toolbarsecondary}
         id = "toolbarsecondary"
       >
         {tags.map((link) => (
