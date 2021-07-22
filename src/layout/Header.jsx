@@ -10,6 +10,7 @@ import Link from "@material-ui/core/Link";
 
 import Title from "../assets/images/the_icarus_luminari.png";
 import "../assets/styles/mobile-nav.css";
+import { getElementById } from "min-document";
 
 
 
@@ -28,9 +29,6 @@ const useStyles = makeStyles((theme) => ({
   },
   divider: {
     background: theme.palette.text.secondary,
-  },
-  navbutton:{
-    display:"none",
   },
   "@media (max-width: 590px)": {
     toolbarTitle: {
@@ -126,7 +124,12 @@ const Header = ({ title, toggleTheme }) => {
           white-space = "nowrap"
           className={classes.navbutton}
           id = "navbutton"
-          onClick = {() => {'toolbarsecondary'.toggle('active');}}
+          onClick = {() => {
+            if(document.getElementById("toolbarsecondary").style.display === "none"){
+            document.getElementById("toolbarsecondary").style.display = "column";
+          }else{
+            document.getElementById("toolbarsecondary").style.display = "none";
+          }}}
         >
           <Typography
           className={classes.hamburger}
