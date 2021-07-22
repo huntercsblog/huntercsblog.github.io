@@ -7,9 +7,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Brightness6Icon from "@material-ui/icons/Brightness6";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-// import Box from "@material-ui/core/Box";
-import SubscribeButton from "../components/SubscribeButton";
-
+import { Facebook, Twitter, RssFeed, Email } from "@material-ui/icons";
+import Grid from "@material-ui/core/Grid";
 import Title from "../assets/images/the_icarus_luminari.png";
 
 const useStyles = makeStyles((theme) => ({
@@ -17,8 +16,12 @@ const useStyles = makeStyles((theme) => ({
   toolbarTitle: {
     flex: 1,
   },
+  toolbarMiddle: {
+    justifyContent: "center",
+    overflowX: "auto",
+  },
   toolbarSecondary: {
-    justifyContent: "space-between",
+    justifyContent: "center",
     overflowX: "auto",
   },
   toolbarLink: {
@@ -90,33 +93,54 @@ const Header = ({ title, toggleTheme }) => {
           </Link>
         </Typography>
       </Toolbar>
-      <Toolbar className={classes.toolbarSecondary}>
-        <Link
-          title="Subscribe to our Newsletter"
-          to="/subscribe"
-          component={GatsbyLink}
+      <Toolbar className={classes.toolbarMiddle}>
+        <Grid
+          container
+          direction="row"
+          justify="space-around"
+          alignItems="center"
+          spacing={2}
         >
-          Subscribe
-        </Link>
-        <Link
-          title="Facebook Page"
-          href="https://www.facebook.com/huntercsblog"
-        >
-          Facebook
-        </Link>
-        <Link
-          title="Twitter Page"
-          href="https://twitter.com/huntercsblog"
-        >
-          Twitter
-        </Link>
-        <Link
-          title="RSS Feed"
-          href="/rss.xml"
-          type="application/rss+xml"
-        >
-          Rss Feed
-        </Link>
+          <Grid item>
+            <Link
+              title="Subscribe to our Newsletter"
+              to="/subscribe"
+              component={GatsbyLink}
+              className={classes.toolbarSubscribe}
+            >
+              Subscribe
+            </Link>
+          </Grid>
+          <Grid item>
+            <div>
+              New York, New York * July 22, 2021 
+            </div>
+          </Grid>
+          <Grid item>
+            <Link
+              title="Facebook Page"
+              href="https://www.facebook.com/huntercsblog"
+              className={classes.toolbarSocial}
+            >
+              <Facebook />
+            </Link>
+            <Link
+              title="Twitter Page"
+              href="https://twitter.com/huntercsblog"
+              className={classes.toolbarSocial}
+            >
+              <Twitter htmlColor="#1DA1F2" />
+            </Link>
+            <Link
+              title="RSS Feed"
+              href="/rss.xml"
+              type="application/rss+xml"
+              className={classes.toolbarSocial}
+            >
+              <RssFeed htmlColor="#DE781F" />
+            </Link>
+          </Grid>
+        </Grid>
       </Toolbar>
       <Divider classes={{ root: classes.divider }} />
       <Toolbar
