@@ -15,14 +15,15 @@ import "../assets/styles/mobile-nav.css";
 
 
 const useStyles = makeStyles((theme) => ({
-  toolbar: {},
+  toolbar: {
+  },
   toolbarTitle: {
     flex: 1,
   },
- //toolbarsecondary: {
-   // justifyContent: "space-around",
-  //  overflowX: "auto",
- // },
+  toolbarsecondary: {
+    justifyContent: "space-around",
+    overflowX: "auto",
+  },
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
@@ -31,13 +32,18 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.text.secondary,
   },
   "@media (max-width: 590px)": {
+    toolbar: {
+      position: "fixed",
+      top: "0",
+      width: "100%",
+    },
     toolbarTitle: {
       display: "flex",
       justifyContent: "flex-start",
+      width: "10px",
     },
     toolbarsecondary:{
       display: "flex",
-      justifyContent: "space-around",
       overflowX: "auto",
       width: "100%",
       backgroundColor: theme.palette.text.default,
@@ -45,12 +51,13 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: " column",
       justifyContent: "center",
       alignContent: "center",
-      position: "absolute",
-      display: "column",
-    
+      position: "fixed",
+      top: "60px",
+      overflowY: "auto",
     },
     navbutton:{
-      display:"inline",
+      display:"column",
+      width: "20%",
     },
     hamburger: {
       display:"block",
