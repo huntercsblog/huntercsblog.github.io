@@ -21,9 +21,9 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
   toolbarsecondary: {
-    justifyContent: "space-around",
-    overflowX: "auto",
-  },
+  justifyContent: "space-around",
+  overflowX: "auto",
+ },
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
@@ -32,6 +32,12 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.text.secondary,
   },
   "@media (max-width: 590px)": {
+    wrapper: {
+      marginRight: "auto", /* 1 */
+      marginLeft: "auto",
+      backgroundColor: "white",
+      opacity: "1",
+    },
     toolbar: {
       position: "fixed",
       top: "0",
@@ -43,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
       width: "10px",
     },
     toolbarsecondary:{
-      display: "flex",
+      display: "none",
       overflowX: "auto",
       width: "100%",
       backgroundColor: theme.palette.text.default,
@@ -52,12 +58,11 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       alignContent: "center",
       position: "fixed",
-      top: "60px",
-      overflowY: "auto",
+      top: "50px",
     },
     navbutton:{
       display:"column",
-      width: "20%",
+      width: "15%",
     },
     hamburger: {
       display:"block",
@@ -66,6 +71,9 @@ const useStyles = makeStyles((theme) => ({
       height: "6px",
       borderRadius: "5px",
       margin: "7px 0px",
+    },
+    divider: {
+      marginTop: theme.spacing(7)
     },
   },
 }));
@@ -107,91 +115,97 @@ const Header = ({ title, toggleTheme }) => {
     }
   `);
 
+  
+
   const links = site.siteMetadata.navbar.links;
   const tags = site.siteMetadata.navbar.tags;
   const classes = useStyles();
   return (
     <>
-      <Toolbar className={classes.toolbar}>
-        <Typography
-          variant="h3"
-          color="textSecondary"
-          align="center"
-          noWrap
-          className={classes.toolbarTitle}
-        >
-          <Link
-            to="/"
-            component={GatsbyLink}
-            color="inherit"
-            className={classes.link}
-          >
-            <img src={Title} alt={title} />
-          </Link>
-        </Typography>
-        <Typography
-          variant="button"
-          color="secondary"
-          align="right"
-          noWrap
-          className={classes.navbutton}
-          id = "navbutton"
-          onClick = {() => {
-            let x = "toolbarsecondary"
-            if(document.getElementById(x).style.display === "flex"){
-            document.getElementById(x).style.display = "none";
-
-          }else {
-            document.getElementById(x).style.display = "flex";
-          }}}
-        >
-          <Typography
-          className={classes.hamburger}
-          id = "topline"
-          >
-          </Typography>
-          <Typography
-          className={classes.hamburger}
-          id = "middleline"
-          >
-          </Typography>
-          <Typography
-          className={classes.hamburger}
-          id = "bottomline"
-          >
-          </Typography>
-        </Typography>
-      </Toolbar>
-      <Divider classes={{ root: classes.divider }} />
-      <Toolbar
-        component="nav"
-        variant="dense"
-        className={classes.toolbarsecondary}
-        id = "toolbarsecondary"
+      <Typography
+        variant= "div"
+        className = {classes.wrapper}
       >
-        {tags.map((link) => (
-          <NavLink 
-            className={classes.toolbarLink} 
-            to={`/tag/${normalizeURL(link)}`}
-            key={link}
+        <Toolbar className={classes.toolbar}>
+          <Typography
+            variant="h3"
+            color="textSecondary"
+            align="center"
+            noWrap
+            className={classes.toolbarTitle}
           >
-            {link}
-          </NavLink>
-        ))}
-        {links.map((link) => (
-          <NavLink 
-            className={classes.toolbarLink} 
-            to={`/${normalizeURL(link)}`}
-            key={link}
+            <Link
+              to="/"
+              component={GatsbyLink}
+              color="inherit"
+              className={classes.link}
+            >
+              <img src={Title} alt={title} />
+            </Link>
+          </Typography>
+          <Typography
+            variant="button"
+            color="secondary"
+            align="right"
+            noWrap
+            className={classes.navbutton}
+            id = "navbutton"
+            onClick = {() => {
+              let x = "toolbarsecondary"
+              if(document.getElementById(x).style.display === "flex"){
+              document.getElementById(x).style.display = "none";
+            }else {
+              document.getElementById(x).style.display = "flex";
+            }}}
           >
-            {link}
-          </NavLink>
-        ))}
+            <Typography
+            className={classes.hamburger}
+            id = "topline"
+            >
+            </Typography>
+            <Typography
+            className={classes.hamburger}
+            id = "middleline"
+            >
+            </Typography>
+            <Typography
+            className={classes.hamburger}
+            id = "bottomline"
+            >
+            </Typography>
+          </Typography>
+        </Toolbar>
+        <Divider classes={{ root: classes.divider }} />
+        <Toolbar
+          component="nav"
+          variant="dense"
+          className={classes.toolbarsecondary}
+          id = "toolbarsecondary"
+        >
+          {tags.map((link) => (
+            <NavLink 
+              className={classes.toolbarLink} 
+              to={`/tag/${normalizeURL(link)}`}
+              key={link}
+            >
+              {link}
+            </NavLink>
+          ))}
+          {links.map((link) => (
+            <NavLink 
+              className={classes.toolbarLink} 
+              to={`/${normalizeURL(link)}`}
+              key={link}
+            >
+              {link}
+            </NavLink>
+          ))}
 
-        <IconButton onClick={toggleTheme}>
-          <Brightness6Icon variant="outline" color="secondary" />
-        </IconButton>
-      </Toolbar>
+          <IconButton onClick={toggleTheme}>
+            <Brightness6Icon variant="outline" color="secondary" />
+          </IconButton>
+        </Toolbar>
+      </Typography>
     </>
   );
 };
