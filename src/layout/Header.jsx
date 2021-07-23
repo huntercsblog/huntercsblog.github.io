@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link as GatsbyLink, useStaticQuery, graphql } from "gatsby";
 import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -10,6 +10,7 @@ import Link from "@material-ui/core/Link";
 
 import Title from "../assets/images/the_icarus_luminari.png";
 import "../assets/styles/mobile-nav.css";
+import { constant } from "lodash";
 //import { getElementById } from "min-document";
 
 
@@ -54,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
       backgroundColor: theme.palette.text.default,
       opacity: "1",
-      flexDirection: " column",
+      flexDirection: "column",
       justifyContent: "center",
       alignContent: "center",
       position: "fixed",
@@ -114,6 +115,23 @@ const Header = ({ title, toggleTheme }) => {
       }
     }
   `);
+  const query = window.matchMedia('(max-width: 590px)');
+  let [NavDisplay, setNavDisplay] = useState("none");
+  useEffect(() => {
+    let navbar = document.getElementById("toolbarsecondary");
+    if(query.matches){
+      navbar.style.display = NavDisplay;
+    }
+  });
+  const changenav = () =>{
+    let navbar = document.getElementById("toolbarsecondary");
+    if(query.matches){
+      setNavDisplay("none");
+    }else{
+      navbar.style.display = "flex";
+    }
+  }
+  query.addListener(changenav);
 
   
 
@@ -122,90 +140,85 @@ const Header = ({ title, toggleTheme }) => {
   const classes = useStyles();
   return (
     <>
-      <Typography
-        variant= "div"
-        className = {classes.wrapper}
-      >
-        <Toolbar className={classes.toolbar}>
-          <Typography
-            variant="h3"
-            color="textSecondary"
-            align="center"
-            noWrap
-            className={classes.toolbarTitle}
-          >
-            <Link
-              to="/"
-              component={GatsbyLink}
-              color="inherit"
-              className={classes.link}
-            >
-              <img src={Title} alt={title} />
-            </Link>
-          </Typography>
-          <Typography
-            variant="button"
-            color="secondary"
-            align="right"
-            noWrap
-            className={classes.navbutton}
-            id = "navbutton"
-            onClick = {() => {
-              let x = "toolbarsecondary"
-              if(document.getElementById(x).style.display === "flex"){
-              document.getElementById(x).style.display = "none";
-            }else {
-              document.getElementById(x).style.display = "flex";
-            }}}
-          >
-            <Typography
-            className={classes.hamburger}
-            id = "topline"
-            >
-            </Typography>
-            <Typography
-            className={classes.hamburger}
-            id = "middleline"
-            >
-            </Typography>
-            <Typography
-            className={classes.hamburger}
-            id = "bottomline"
-            >
-            </Typography>
-          </Typography>
-        </Toolbar>
-        <Divider classes={{ root: classes.divider }} />
-        <Toolbar
-          component="nav"
-          variant="dense"
-          className={classes.toolbarsecondary}
-          id = "toolbarsecondary"
+      <Toolbar className={classes.toolbar}>
+        <Typography
+          variant="h3"
+          color="textSecondary"
+          align="center"
+          noWrap
+          className={classes.toolbarTitle}
         >
-          {tags.map((link) => (
-            <NavLink 
-              className={classes.toolbarLink} 
-              to={`/tag/${normalizeURL(link)}`}
-              key={link}
-            >
-              {link}
-            </NavLink>
-          ))}
-          {links.map((link) => (
-            <NavLink 
-              className={classes.toolbarLink} 
-              to={`/${normalizeURL(link)}`}
-              key={link}
-            >
-              {link}
-            </NavLink>
-          ))}
+          <Link
+            to="/"
+            component={GatsbyLink}
+            color="inherit"
+            className={classes.link}
+          >
+            <img src={Title} alt={title} />
+          </Link>
+        </Typography>
+        <Typography
+          variant="button"
+          color="secondary"
+          align="right"
+          noWrap
+          className={classes.navbutton}
+          id = "navbutton"
+          onClick = {() => {
+              if(NavDisplay === "none"){
+                setNavDisplay("flex");
+              }else {
+                setNavDisplay("none");
+              }
+            }}
+        >
+          <Typography
+          className={classes.hamburger}
+          id = "topline"
+          >
+          </Typography>
+          <Typography
+          className={classes.hamburger}
+          id = "middleline"
+          >
+          </Typography>
+          <Typography
+          className={classes.hamburger}
+          id = "bottomline"
+          >
+          </Typography>
+        </Typography>
+      </Toolbar>
+      <Divider classes={{ root: classes.divider }} />
+      <Toolbar
+        component="nav"
+        variant="dense"
+        className={classes.toolbarsecondary}
+        id = "toolbarsecondary"
+      >
+        {tags.map((link) => (
+          <NavLink 
+            className={classes.toolbarLink} 
+            to={`/tag/${normalizeURL(link)}`}
+            key={link}
+          >
+            {link}
+          </NavLink>
+        ))}
+        {links.map((link) => (
+          <NavLink 
+            className={classes.toolbarLink} 
+            to={`/${normalizeURL(link)}`}
+            key={link}
+          >
+            {link}
+          </NavLink>
+        ))}
 
-          <IconButton onClick={toggleTheme}>
-            <Brightness6Icon variant="outline" color="secondary" />
-          </IconButton>
-        </Toolbar>
-      </Typography>
+        <IconButton onClick={toggleTheme}>
+          <Brightness6Icon variant="outline" color="secondary" />
+        </IconButton>
+      </Toolbar>
     </>
   );
 };
