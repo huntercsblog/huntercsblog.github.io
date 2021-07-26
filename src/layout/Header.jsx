@@ -19,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
   toolbarMiddle: {
     justifyContent: "center",
     overflowX: "auto",
+    minHeight: "48px",
+    marginTop: "-18px",  // not the solution, but it works 
   },
   subscribe: {
     backgroundColor: "#A93F55", // same as footer icon color
@@ -119,9 +121,7 @@ const Header = ({ title, toggleTheme }) => {
             </Link>
           </Grid>
           <Grid item>
-            <div>
               Hunter College - New York, New York - July 22, 2021 
-            </div>
           </Grid>
           <Grid item>
             <Link
@@ -177,8 +177,6 @@ const Header = ({ title, toggleTheme }) => {
         <IconButton onClick={toggleTheme}>
           <Brightness6Icon variant="outline" color="secondary" />
         </IconButton>
-      {/* <SubscribeButton /> */}
-
       </Toolbar>
     </>
   );
