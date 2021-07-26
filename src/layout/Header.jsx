@@ -20,6 +20,13 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     overflowX: "auto",
   },
+  subscribe: {
+    backgroundColor: "#A93F55", // same as footer icon color
+    color: "rgba(0, 0, 0, 0.87)",
+    padding: "5px 10px",
+    textDecoration: "none",    //Remove text underline
+    borderRadius: "24px",
+  },
   toolbarSecondary: {
     justifyContent: "center",
     overflowX: "auto",
@@ -106,14 +113,14 @@ const Header = ({ title, toggleTheme }) => {
               title="Subscribe to our Newsletter"
               to="/subscribe"
               component={GatsbyLink}
-              className={classes.toolbarSubscribe}
+              className={classes.subscribe}
             >
-              Subscribe
+              SUBSCRIBE
             </Link>
           </Grid>
           <Grid item>
             <div>
-              New York, New York * July 22, 2021 
+              Hunter College - New York, New York - July 22, 2021 
             </div>
           </Grid>
           <Grid item>
