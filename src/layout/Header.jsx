@@ -34,26 +34,24 @@ const useStyles = makeStyles((theme) => ({
   },
   "@media (max-width: 590px)": {
     wrapper: {
-      marginRight: "auto", /* 1 */
-      marginLeft: "auto",
-      backgroundColor: "black",
-      opacity: "1",
+      width: "100%",
     },
     toolbar: {
       position: "fixed",
       top: "0",
       width: "100%",
+      backgroundColor: "white",
     },
     toolbarTitle: {
       display: "flex",
       justifyContent: "flex-start",
       width: "10px",
+      backgroundColor: "white",
     },
     toolbarsecondary:{
       display: "none",
-      overflowX: "auto",
       width: "100%",
-      backgroundColor: theme.palette.text.default,
+      backgroundColor: "white",
       opacity: "1",
       flexDirection: "column",
       justifyContent: "center",

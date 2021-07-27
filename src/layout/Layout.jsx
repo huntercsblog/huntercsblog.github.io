@@ -40,12 +40,12 @@ const Layout = ({ content, toggleTheme, themeType }) => {
       <div className={classes.root}>
         <Container maxWidth="lg">
           <main className={classes.main}>{content}</main>
-          <Header
+        </Container>
+        <Header
             toggleTheme={toggleTheme}
             themeType={themeType}
             title={title}
           />
-        </Container>
       </div>
       <Container maxWidth="lg">
         <Footer title={title} />
