@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     wrapper: {
       marginRight: "auto", /* 1 */
       marginLeft: "auto",
-      backgroundColor: "white",
+      backgroundColor: "black",
       opacity: "1",
     },
     toolbar: {
