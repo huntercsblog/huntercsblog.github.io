@@ -45,7 +45,7 @@ const Layout = ({ content, toggleTheme, themeType }) => {
             toggleTheme={toggleTheme}
             themeType={themeType}
             title={title}
-          />
+        />
       </div>
       <Container maxWidth="lg">
         <Footer title={title} />

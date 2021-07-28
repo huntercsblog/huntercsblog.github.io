@@ -17,14 +17,23 @@ import { constant } from "lodash";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: {
+    position: "fixed",
+    top: "0",
+    width: "100%",
+    backgroundColor: theme.palette.background.default,
   },
   toolbarTitle: {
     flex: 1,
   },
   toolbarsecondary: {
-  justifyContent: "space-around",
-  overflowX: "auto",
- },
+    justifyContent: "space-around",
+    overflowX: "auto",
+    width: "100%",
+    backgroundColor: theme.palette.background.default,
+    opacity: "1",
+    position: "fixed",
+    top: "50px",
+  },
   toolbarLink: {
     padding: theme.spacing(1),
     flexShrink: 0,
@@ -37,21 +46,16 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
     toolbar: {
-      position: "fixed",
-      top: "0",
-      width: "100%",
-      backgroundColor: "white",
     },
     toolbarTitle: {
       display: "flex",
       justifyContent: "flex-start",
       width: "10px",
-      backgroundColor: "white",
+      backgroundColor: theme.palette.background.default,
     },
     toolbarsecondary:{
       display: "none",
-      width: "100%",
-      backgroundColor: "white",
+      backgroundColor: theme.palette.background.default,
       opacity: "1",
       flexDirection: "column",
       justifyContent: "center",
