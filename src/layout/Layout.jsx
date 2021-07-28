@@ -15,7 +15,12 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "85vh",
   },
   main: {
-    marginTop: theme.spacing(1.125),
+    marginTop: theme.spacing(14),
+  },
+  "@media (max-width: 590px)": {
+    main: {
+      marginTop: theme.spacing(10),
+    },
   },
 }));
 

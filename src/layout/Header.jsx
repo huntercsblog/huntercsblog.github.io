@@ -21,6 +21,8 @@ const useStyles = makeStyles((theme) => ({
     top: "0",
     width: "100%",
     backgroundColor: theme.palette.background.default,
+    boxShadow: "2px 2px 5px grey",
+    zIndex: "1",
   },
   toolbarTitle: {
     flex: 1,
@@ -32,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.default,
     opacity: "1",
     position: "fixed",
-    top: "50px",
+    top: "60px",
+    zIndex: "0",
   },
   toolbarLink: {
     padding: theme.spacing(1),
@@ -40,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
   },
   divider: {
     background: theme.palette.text.secondary,
+    position: "fixed",
+    zIndex: "2",
+    top: "100px",
   },
   "@media (max-width: 590px)": {
     wrapper: {
@@ -64,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       alignContent: "center",
       position: "fixed",
-      top: "50px",
+      top: "56px",
       zIndex: "0",
     },
     navbutton:{
@@ -80,7 +86,9 @@ const useStyles = makeStyles((theme) => ({
       margin: "7px 0px",
     },
     divider: {
-      marginTop: theme.spacing(7)
+      marginTop: theme.spacing(7),
+      position: "fixed",
+      display: "none",
     },
   },
 }));
