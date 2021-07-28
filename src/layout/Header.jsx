@@ -46,22 +46,26 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
     },
     toolbar: {
+      backgroundColor: theme.palette.background.header,
+      boxShadow: "2px 2px 5px grey",
+      zIndex: "1",
     },
     toolbarTitle: {
       display: "flex",
       justifyContent: "flex-start",
       width: "10px",
-      backgroundColor: theme.palette.background.default,
+      backgroundColor: theme.palette.background.header,
     },
     toolbarsecondary:{
       display: "none",
-      backgroundColor: theme.palette.background.default,
+      backgroundColor: theme.palette.background.header,
       opacity: "1",
       flexDirection: "column",
       justifyContent: "center",
       alignContent: "center",
       position: "fixed",
       top: "50px",
+      zIndex: "0",
     },
     navbutton:{
       display:"column",
@@ -128,6 +132,7 @@ const Header = ({ title, toggleTheme }) => {
   const changenav = () =>{
     let navbar = document.getElementById("toolbarsecondary");
     if(query.matches){
+      navbar.style.display = "none";
       setNavDisplay("none");
     }else{
       navbar.style.display = "flex";
