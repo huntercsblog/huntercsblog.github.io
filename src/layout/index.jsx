@@ -4,6 +4,7 @@ import themes from "src/theme";
 import useLocalStorage from "src/hooks/useLocalStorage";
 import { ThemeProvider } from "@material-ui/styles";
 
+// Index for general page layout
 const Index = ({ children, container = false }) => {
   const [theme, setTheme] = useLocalStorage("theme", "dark");
 

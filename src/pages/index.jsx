@@ -4,7 +4,7 @@ import Layout from "src/layout";
 import ArticleList from "../components/article-list";
 import SubscribeButton from "../components/SubscribeButton";
 
-
+// Index for homepage layout
 const Index = () => {
   const recent = useStaticQuery(graphql`
     {
