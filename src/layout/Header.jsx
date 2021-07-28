@@ -178,6 +178,7 @@ const Header = ({ title, toggleTheme }) => {
           <Brightness6Icon variant="outline" color="secondary" />
         </IconButton>
       </Toolbar>
+      <Divider classes={{ root: classes.divider }} />
     </>
   );
 };
