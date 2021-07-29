@@ -1,3 +1,4 @@
+/*styling for the search bar*/
 #Search {
   text-align: center;
   width: 100%;
@@ -44,10 +45,5 @@ position: absolute;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-  color: #b873f0;
-}
-
-h5 {
-  font-family: monospace;
   color: #b873f0;
 }
