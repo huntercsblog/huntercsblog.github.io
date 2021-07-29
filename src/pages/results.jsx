@@ -1,16 +1,11 @@
-import React, {Fragment, useState} from "react";
+import React, {useState} from "react";
 import Layout from "src/layout";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
 import { useFlexSearch } from 'react-use-flexsearch';
 import { graphql, useStaticQuery } from "gatsby";
-import { Link as GatsbyLink } from "gatsby";
 import "src/assets/styles/results.css";
+import ResArt from "../components/result.jsx";
 
-const Result = props => {
+const Result = () => {
   const pageQuery =useStaticQuery(graphql`
     query {
       localSearchPages {
@@ -34,28 +29,7 @@ const Result = props => {
         />
           <div class="icons8-search"></div>
       </div>
-      <Fragment>
-        <Typography variant="h4">
-          Search Results for "{searchQuery}"
-        </Typography>
-        {results.map(result => (
-            <Box component={Card} my={1} key={result}>
-              <CardActionArea component={GatsbyLink} to={`/articles/${result.slug}`}>
-                <CardContent>
-                  <Typography variant="h5" color="textSecondary">
-                    {result.title}
-                  </Typography>
-                  <Typography variant="h6">
-                    <time datetime={result.humanDate}>{result.humanDate}</time>
-                    {" "}&middot;{" "}
-                    {result.timeToRead} min read
-                  </Typography>
-                  {result.excerpt}
-                </CardContent>
-              </CardActionArea>
-            </Box>
-        ))}
-      </Fragment>
+      <ResArt results={results} searchQuery={searchQuery}/>
     </Layout>
   );
 };
