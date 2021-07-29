@@ -10,7 +10,7 @@ module.exports = [
       },
     },
   },
-  
+
   {
     resolve: 'gatsby-plugin-local-search',
     options: {
@@ -32,13 +32,24 @@ module.exports = [
       // required.
       query: `
         {
-          allMdx {
+          allMdx (
+            sort: { fields: frontmatter___date, order: DESC }
+          ) {
             nodes {
               id
-              excerpt
+              body
+              excerpt(truncate: true, pruneLength: 300)
+              timeToRead
               frontmatter {
                 tags
                 title
+                humanDate: date(formatString: "MMM Do, YYYY")
+                authors {
+                  display_name
+                }
+              }
+              fields {
+                slug
               }
             }
           }
@@ -47,17 +58,18 @@ module.exports = [
 
       // Field used as the reference value for each document.
       // Default: 'id'.
-      ref: 'id',
+      ref: 'slug',
 
       // List of keys to index. The values of the keys are taken from the
       // normalizer function below.
       // Default: all fields
-      index: ['title', 'body'],
+      //authors don't work in search right now
+      index: ['title', 'body', 'tags', 'humanDate', 'authors', 'timeToRead'],
 
       // List of keys to store and make available in your UI. The values of
       // the keys are taken from the normalizer function below.
       // Default: all fields
-      store: ['id', 'tags', 'title'],
+      store: ['title', 'slug', 'humanDate', 'excerpt', 'timeToRead'],
 
       // Function used to map the result from the GraphQL query. This should
       // return an array of items to index in the form of flat objects
@@ -65,10 +77,15 @@ module.exports = [
       // field above (default: 'id'). This is required.
       normalizer: ({ data }) =>
         data.allMdx.nodes.map((node) => ({
-          id: node.id,
           path: node.frontmatter.path,
           title: node.frontmatter.title,
-          body: node.excerpt
+          body: node.body,
+          excerpt: node.excerpt,
+          slug: node.fields.slug,
+          tags: node.frontmatter.tags,
+          authors: node.frontmatter.authors,
+          humanDate: node.frontmatter.humanDate,
+          timeToRead: node.timeToRead,
         })),
     },
   },
