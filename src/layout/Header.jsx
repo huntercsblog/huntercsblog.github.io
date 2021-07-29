@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
       position: "fixed",
       width: "100%",
       height: "100%",
-      backgroundColor: "grey",
+      backgroundColor: "black",
       zIndex: "0",
       opacity: "0.3",
     },
