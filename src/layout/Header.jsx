@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Brightness6Icon from "@material-ui/icons/Brightness6";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-import { Facebook, Twitter, RssFeed, Email } from "@material-ui/icons";
+import { Facebook, Twitter, RssFeed } from "@material-ui/icons";
 import Grid from "@material-ui/core/Grid";
 import Title from "../assets/images/the_icarus_luminari.png";
 
