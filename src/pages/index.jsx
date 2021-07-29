@@ -16,6 +16,7 @@ const Index = () => {
           node {
             frontmatter {
               title
+              tags
               humanDate: date(formatString: "MMM Do, YYYY")
               datetime: date(formatString: "YYYY-MM-DD")
             }
@@ -30,9 +31,22 @@ const Index = () => {
     }
   `).allMdx.edges;
 
+  /**
+   * Gets the 2 most recent articles with the 'name' tag that aren't the 3 most recent articles
+   * @param name {string}   tag name
+   * @return {string}       the 2 most recent articles with the 'name' tag
+   */
+  const getTaggedArticles = (name) => {
+    return recent.slice(3).filter(edge => edge.node.frontmatter.tags.some(tag => tag === name)).slice(0, 2);
+  }
+
   return (
     <Layout>
-      <ArticleList articles={recent} title="Latest News" />
+      <ArticleList articles={recent.slice(0, 3)} title="Latest News" />
+      <ArticleList articles={getTaggedArticles("Hunter")} title="Hunter" />
+      <ArticleList articles={getTaggedArticles("NYC")} title="NYC" />
+      <ArticleList articles={getTaggedArticles("Daedalus")} title="Daedalus" />
+      <ArticleList articles={getTaggedArticles("Tech")} title="Tech" />
       <SubscribeButton />
     </Layout>
   );
