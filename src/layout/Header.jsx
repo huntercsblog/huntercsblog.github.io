@@ -21,8 +21,7 @@ const useStyles = makeStyles((theme) => ({
     top: "0",
     width: "100%",
     backgroundColor: theme.palette.background.default,
-    boxShadow: "2px 2px 5px grey",
-    zIndex: "1",
+    zIndex: "2",
   },
   toolbarTitle: {
     flex: 1,
@@ -35,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
     opacity: "1",
     position: "fixed",
     top: "60px",
-    zIndex: "0",
+    zIndex: "1",
+    boxShadow: "2px 2px 5px grey",
   },
   toolbarLink: {
     padding: theme.spacing(1),
@@ -49,12 +49,17 @@ const useStyles = makeStyles((theme) => ({
   },
   "@media (max-width: 590px)": {
     wrapper: {
+      position: "fixed",
       width: "100%",
+      height: "100%",
+      backgroundColor: "grey",
+      zIndex: "0",
+      opacity: "0.3",
     },
     toolbar: {
       backgroundColor: theme.palette.background.header,
       boxShadow: "2px 2px 5px grey",
-      zIndex: "1",
+      zIndex: "2",
     },
     toolbarTitle: {
       display: "flex",
@@ -71,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
       alignContent: "center",
       position: "fixed",
       top: "56px",
-      zIndex: "0",
+      zIndex: "1",
     },
     navbutton:{
       display:"column",
@@ -133,8 +138,10 @@ const Header = ({ title, toggleTheme }) => {
   let [NavDisplay, setNavDisplay] = useState("none");
   useEffect(() => {
     let navbar = document.getElementById("toolbarsecondary");
+    let wrapper = document.getElementById("wrapper");
     if(query.matches){
       navbar.style.display = NavDisplay;
+      wrapper.style.display = NavDisplay;
     }
   });
   const changenav = () =>{
@@ -180,11 +187,7 @@ const Header = ({ title, toggleTheme }) => {
           className={classes.navbutton}
           id = "navbutton"
           onClick = {() => {
-              if(NavDisplay === "none"){
-                setNavDisplay("flex");
-              }else {
-                setNavDisplay("none");
-              }
+              (NavDisplay === "none" ? setNavDisplay("flex") : setNavDisplay("none"));
             }}
         >
           <Typography
@@ -229,13 +232,18 @@ const Header = ({ title, toggleTheme }) => {
             {link}
           </NavLink>
         ))}
-
         <IconButton onClick={toggleTheme}>
           <Brightness6Icon variant="outline" color="secondary" />
         </IconButton>
       </Toolbar>
+      <Typography
+        variant= "button"
+        className = {classes.wrapper}
+        id = "wrapper"
+        onClick = {() => {
+          (NavDisplay === "none" ? setNavDisplay("flex") : setNavDisplay("none"));}}
+      ></Typography>
     </>
   );
 };
-
 export default Header;
