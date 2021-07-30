@@ -7,10 +7,9 @@ import IconButton from "@material-ui/core/IconButton";
 import Brightness6Icon from "@material-ui/icons/Brightness6";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-
 import Title from "../assets/images/the_icarus_luminari.png";
 import "../assets/styles/mobile-nav.css";
-import { constant } from "lodash";
+
 //import { getElementById } from "min-document";
 
 
@@ -89,12 +88,18 @@ const useStyles = makeStyles((theme) => ({
       height: "6px",
       borderRadius: "5px",
       margin: "7px 0px",
+
     },
     divider: {
       marginTop: theme.spacing(7),
       position: "fixed",
       display: "none",
     },
+    box:{
+     // boxShadow: "none",
+      width: "40px",
+    },
+
   },
 }));
 
@@ -139,6 +144,7 @@ const Header = ({ title, toggleTheme }) => {
   useEffect(() => {
     let navbar = document.getElementById("toolbarsecondary");
     let wrapper = document.getElementById("wrapper");
+ 
     if(query.matches){
       navbar.style.display = NavDisplay;
       wrapper.style.display = NavDisplay;
@@ -160,6 +166,8 @@ const Header = ({ title, toggleTheme }) => {
   const links = site.siteMetadata.navbar.links;
   const tags = site.siteMetadata.navbar.tags;
   const classes = useStyles();
+ 
+
   return (
     <>
       <Toolbar className={classes.toolbar}>
@@ -190,6 +198,15 @@ const Header = ({ title, toggleTheme }) => {
               (NavDisplay === "none" ? setNavDisplay("flex") : setNavDisplay("none"));
             }}
         >
+        <Typography id = "box" className = {classes.box}
+          
+         onMouseEnter = {()=>{
+           document.getElementById("box").style.setBoxShadow("2px 2px 5px grey");
+         }
+         }
+    
+        
+        >
           <Typography
           className={classes.hamburger}
           id = "topline"
@@ -206,6 +223,7 @@ const Header = ({ title, toggleTheme }) => {
           >
           </Typography>
         </Typography>
+      </Typography>
       </Toolbar>
       <Divider classes={{ root: classes.divider }} />
       <Toolbar
