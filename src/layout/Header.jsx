@@ -96,7 +96,7 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
     },
     box:{
-     // boxShadow: "none",
+      boxShadow: "none",
       width: "40px",
     },
 
@@ -201,9 +201,11 @@ const Header = ({ title, toggleTheme }) => {
         <Typography id = "box" className = {classes.box}
           
          onMouseEnter = {()=>{
-           document.getElementById("box").style.setBoxShadow("2px 2px 5px grey");
+           document.getElementById("box").style.boxShadow="20px 20px 70px 15px grey"       }
          }
-         }
+         onMouseLeave = {()=>{
+          document.getElementById("box").style.boxShadow="none";  
+         }}
     
         
         >
