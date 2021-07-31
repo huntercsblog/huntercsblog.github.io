@@ -121,7 +121,7 @@ const Header = ({ title, toggleTheme }) => {
             </Link>
           </Grid>
           <Grid item>
-              Hunter College - New York, New York - July 22, 2021 
+              Hunter College - New York, New York
           </Grid>
           <Grid item>
             <Link
