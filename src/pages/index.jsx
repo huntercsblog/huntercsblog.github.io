@@ -2,7 +2,6 @@ import React from "react";
 import { graphql, useStaticQuery} from "gatsby";
 import Layout from "src/layout";
 import ArticleList from "../components/article-list";
-import HomePage from "../components/homepage";
 import SubscribeButton from "../components/SubscribeButton";
 import Grid from '@material-ui/core/Grid'
 
