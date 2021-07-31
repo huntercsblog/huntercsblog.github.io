@@ -7,7 +7,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Brightness6Icon from "@material-ui/icons/Brightness6";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-
+import { Facebook, Twitter, RssFeed } from "@material-ui/icons";
+import Grid from "@material-ui/core/Grid";
 import Title from "../assets/images/the_icarus_luminari.png";
 
 const useStyles = makeStyles((theme) => ({
@@ -15,8 +16,21 @@ const useStyles = makeStyles((theme) => ({
   toolbarTitle: {
     flex: 1,
   },
+  toolbarMiddle: {
+    justifyContent: "center",
+    overflowX: "auto",
+    minHeight: "48px",
+    marginTop: "-18px",  // not the solution, but it works 
+  },
+  subscribe: {
+    backgroundColor: "#A93F55", // same as footer icon color
+    color: "rgba(0, 0, 0, 0.87)",
+    padding: "5px 10px",
+    textDecoration: "none",    //Remove text underline
+    borderRadius: "24px",
+  },
   toolbarSecondary: {
-    justifyContent: "space-between",
+    justifyContent: "center",
     overflowX: "auto",
   },
   toolbarLink: {
@@ -88,6 +102,53 @@ const Header = ({ title, toggleTheme }) => {
           </Link>
         </Typography>
       </Toolbar>
+      <Toolbar className={classes.toolbarMiddle}>
+        <Grid
+          container
+          direction="row"
+          justify="space-around"
+          alignItems="center"
+          spacing={2}
+        >
+          <Grid item>
+            <Link
+              title="Subscribe to our Newsletter"
+              to="/subscribe"
+              component={GatsbyLink}
+              className={classes.subscribe}
+            >
+              SUBSCRIBE
+            </Link>
+          </Grid>
+          <Grid item>
+              Hunter College - New York, New York
+          </Grid>
+          <Grid item>
+            <Link
+              title="Facebook Page"
+              href="https://www.facebook.com/huntercsblog"
+              className={classes.toolbarSocial}
+            >
+              <Facebook />
+            </Link>
+            <Link
+              title="Twitter Page"
+              href="https://twitter.com/huntercsblog"
+              className={classes.toolbarSocial}
+            >
+              <Twitter htmlColor="#1DA1F2" />
+            </Link>
+            <Link
+              title="RSS Feed"
+              href="/rss.xml"
+              type="application/rss+xml"
+              className={classes.toolbarSocial}
+            >
+              <RssFeed htmlColor="#DE781F" />
+            </Link>
+          </Grid>
+        </Grid>
+      </Toolbar>
       <Divider classes={{ root: classes.divider }} />
       <Toolbar
         component="nav"
@@ -117,6 +178,7 @@ const Header = ({ title, toggleTheme }) => {
           <Brightness6Icon variant="outline" color="secondary" />
         </IconButton>
       </Toolbar>
+      <Divider classes={{ root: classes.divider }} />
     </>
   );
 };
