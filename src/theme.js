@@ -34,7 +34,8 @@ const makeTheme = (variant) => {
 const light = {
   palette: {
     background: {
-      default: "#ebeaeb",
+      default: "#e3e3e3",
+      header: "#ebebeb",
       paper: "#fff",
     },
     text: {
@@ -51,6 +52,7 @@ const dark = {
   palette: {
     background: {
       default: "#303030",
+      header: "3d3d3d",
       paper: "#424242",
     },
     text: {

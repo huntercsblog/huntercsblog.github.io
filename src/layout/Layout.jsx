@@ -15,7 +15,12 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "85vh",
   },
   main: {
-    marginTop: theme.spacing(1.125),
+    marginTop: theme.spacing(14),
+  },
+  "@media (max-width: 590px)": {
+    main: {
+      marginTop: theme.spacing(10),
+    },
   },
 }));
 
@@ -39,13 +44,13 @@ const Layout = ({ content, toggleTheme, themeType }) => {
       <CssBaseline />
       <div className={classes.root}>
         <Container maxWidth="lg">
-          <Header
+          <main className={classes.main}>{content}</main>
+        </Container>
+        <Header
             toggleTheme={toggleTheme}
             themeType={themeType}
             title={title}
-          />
-          <main className={classes.main}>{content}</main>
-        </Container>
+        />
       </div>
       <Container maxWidth="lg">
         <Footer title={title} />
