@@ -7,9 +7,8 @@ import IconButton from "@material-ui/core/IconButton";
 import Brightness6Icon from "@material-ui/icons/Brightness6";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
-
 import Title from "../assets/images/the_icarus_luminari.png";
-
+import Search from '../components/searchbar';
 const useStyles = makeStyles((theme) => ({
   toolbar: {},
   toolbarTitle: {
@@ -68,6 +67,7 @@ const Header = ({ title, toggleTheme }) => {
   const links = site.siteMetadata.navbar.links;
   const tags = site.siteMetadata.navbar.tags;
   const classes = useStyles();
+
   return (
     <>
       <Toolbar className={classes.toolbar}>
@@ -88,6 +88,7 @@ const Header = ({ title, toggleTheme }) => {
           </Link>
         </Typography>
       </Toolbar>
+      <Search/>
       <Divider classes={{ root: classes.divider }} />
       <Toolbar
         component="nav"
@@ -95,8 +96,8 @@ const Header = ({ title, toggleTheme }) => {
         className={classes.toolbarSecondary}
       >
         {tags.map((link) => (
-          <NavLink 
-            className={classes.toolbarLink} 
+          <NavLink
+            className={classes.toolbarLink}
             to={`/tag/${normalizeURL(link)}`}
             key={link}
           >
@@ -104,8 +105,8 @@ const Header = ({ title, toggleTheme }) => {
           </NavLink>
         ))}
         {links.map((link) => (
-          <NavLink 
-            className={classes.toolbarLink} 
+          <NavLink
+            className={classes.toolbarLink}
             to={`/${normalizeURL(link)}`}
             key={link}
           >
