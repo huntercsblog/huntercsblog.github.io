@@ -8,7 +8,8 @@ import Brightness6Icon from "@material-ui/icons/Brightness6";
 import Typography from "@material-ui/core/Typography";
 import Link from "@material-ui/core/Link";
 import Title from "../assets/images/the_icarus_luminari.png";
-import Search from '../components/searchbar';
+import "src/assets/styles/searchbar.css";
+import SearchBar from "../components/searchbar.jsx";
 const useStyles = makeStyles((theme) => ({
   toolbar: {},
   toolbarTitle: {
@@ -37,6 +38,8 @@ const normalizeURL = (url) => encodeURIComponent(url.replace(/ /g, "-").toLowerC
  * @className  passed as the underlying Link's className
  * @to         the local url to go to
  */
+
+
 const NavLink = (props) => (
   <Link
     to={props.to}
@@ -88,7 +91,8 @@ const Header = ({ title, toggleTheme }) => {
           </Link>
         </Typography>
       </Toolbar>
-      <Search/>
+      <SearchBar/>
+     
       <Divider classes={{ root: classes.divider }} />
       <Toolbar
         component="nav"

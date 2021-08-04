@@ -1,30 +1,26 @@
 import React, { useState } from "react";
 import "src/assets/styles/searchbar.css";
 import Fab from '@material-ui/core/Fab';
-import Result from "../pages/results";
-import { Link } from "gatsby";
-
 
 
 
 const SearchBar = () => {
-    const [keyword, setkeyword] = useState('');
+    const [keyword, setkeyword] = useState(' ');
     return (
-        <form action="./results" method="get">
-            <div id="SearchBar">
+        <form action="./results" method="GET">
+            <div id="search">
                 <input
                     type="text"
                     placeholder="Search posts"
                     id="input"
+                    name="q"
                     value={keyword}
                     onInput={(e) => setkeyword(e.target.value)}
                 />
-                <Link to="/results"
-                    type="submit" title="Search" onSubmit={console.log(keyword)}>
+                <button type="sumbit">
                     <Fab aria-label="Search" variant="extended">
                         Search
-                    </Fab>
-                </Link>
+                    </Fab></button>
             </div>
         </form>
     )
