@@ -1,0 +1,25 @@
+#input {
+    font-family: monospace;
+    font-size: 20px;
+    color: #b873f0;
+    height: 50px;
+    width: 60%;
+    padding: 15px;
+    margin: 20px 20px 20px 0px;
+    border-radius: 20px;
+    border: 0px solid;
+    outline: none;
+  }
+
+
+  #button{
+    background-color: #303030;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  }
