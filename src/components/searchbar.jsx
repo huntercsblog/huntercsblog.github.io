@@ -17,7 +17,7 @@ const SearchBar = () => {
                     value={keyword}
                     onInput={(e) => setkeyword(e.target.value)}
                 />
-                <button type="sumbit">
+                <button id= "button" type="sumbit">
                     <Fab aria-label="Search" variant="extended">
                         Search
                     </Fab></button>

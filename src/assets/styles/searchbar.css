@@ -10,3 +10,16 @@
     border: 0px solid;
     outline: none;
   }
+
+
+  #button{
+    background-color: #303030;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  }
