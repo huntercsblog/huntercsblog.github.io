@@ -36,9 +36,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   image: {
-    maxWidth: "75%",
-    height: "100%",
-  }
+    display: "block",
+    width: "680px",
+		marginLeft: "auto",
+		marginRight: "auto",
+  },
 }));
 
 const Article = ({ data, pageContext, location }) => {
@@ -97,9 +99,7 @@ const Article = ({ data, pageContext, location }) => {
         {timeToRead + " min read"}
       </Typography>
       {/*Article Body*/}
-      <div className={classes.image}>
-        <img src={frontmatter.image} alt=""/>
-      </div>
+      <img className = {classes.image} src={frontmatter.image} alt=""/>
       <div className={classes.main} id="article-body">
         <MDXRenderer>{body}</MDXRenderer>
         {/*Article Tags*/}
