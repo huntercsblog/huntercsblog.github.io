@@ -10,7 +10,7 @@ import Link from "@material-ui/core/Link";
 
 import Title from "../assets/images/the_icarus_luminari.png";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({  
   toolbar: {},
   toolbarTitle: {
     flex: 1,
