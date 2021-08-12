@@ -18,6 +18,7 @@ import SubscribeButton from "src/components/SubscribeButton";
 import Layout from "src/layout";
 import "../assets/styles/article.css";
 import { list } from "postcss";
+import FigureCaption from "react-bootstrap/esm/FigureCaption";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -43,6 +44,11 @@ const useStyles = makeStyles((theme) => ({
     width: "680px",
 		marginLeft: "auto",
 		marginRight: "auto",
+  },
+  imagecaption: {
+    textAlign: "center",
+    marginTop: "10px",
+    fontWeight: "bold",
   },
 }));
 
@@ -102,9 +108,10 @@ const Article = ({ data, pageContext, location }) => {
         {timeToRead + " min read"}
       </Typography>
       {/*Article Image*/}
-      <Figure>
+      <figure>
         <img className = {classes.image} src={frontmatter.image} alt=""/>
-      </Figure>
+        <figcaption className = {classes.imagecaption}>{frontmatter.caption}</figcaption>
+      </figure>
       {/*Article Body*/}
       <div className={classes.main} id="article-body">
         <MDXRenderer>{body}</MDXRenderer>
@@ -170,6 +177,7 @@ export const query = graphql`
           image
         }
         image
+        caption
       }
       timeToRead
       body
