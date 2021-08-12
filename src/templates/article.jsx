@@ -9,12 +9,15 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { makeStyles } from "@material-ui/core/styles";
 import { Disqus } from 'gatsby-plugin-disqus';
+import SimpleImageSlider from "react-simple-image-slider";
+import Figure from 'react-bootstrap/Figure';
 
 import SEO from "src/components/SEO";
 import TagChip from "src/components/tagchip";
 import SubscribeButton from "src/components/SubscribeButton";
 import Layout from "src/layout";
 import "../assets/styles/article.css";
+import { list } from "postcss";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -98,8 +101,11 @@ const Article = ({ data, pageContext, location }) => {
         <time>{frontmatter.date}</time>&nbsp;&middot;&nbsp;
         {timeToRead + " min read"}
       </Typography>
+      {/*Article Image*/}
+      <Figure>
+        <img className = {classes.image} src={frontmatter.image} alt=""/>
+      </Figure>
       {/*Article Body*/}
-      <img className = {classes.image} src={frontmatter.image} alt=""/>
       <div className={classes.main} id="article-body">
         <MDXRenderer>{body}</MDXRenderer>
         {/*Article Tags*/}
