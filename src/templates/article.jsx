@@ -9,9 +9,9 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { makeStyles } from "@material-ui/core/styles";
 import { Disqus } from 'gatsby-plugin-disqus';
-import ImageList from '@material-ui/core/ImageList';
-import ImageListItem from '@material-ui/core/ImageListItem';
-import ImageListItemBar from '@material-ui/core/ImageListItemBar';
+import {ImageList} from '@material-ui/core';
+import {ImageListItem} from '@material-ui/core';
+import {ImageListItemBar} from '@material-ui/core';
 
 import SEO from "src/components/SEO";
 import TagChip from "src/components/tagchip";
