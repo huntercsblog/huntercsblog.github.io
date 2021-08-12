@@ -9,18 +9,13 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { makeStyles } from "@material-ui/core/styles";
 import { Disqus } from 'gatsby-plugin-disqus';
-import {ImageList} from '@material-ui/core';
-import {ImageListItem} from '@material-ui/core';
-import {ImageListItemBar} from '@material-ui/core';
 
 import SEO from "src/components/SEO";
 import TagChip from "src/components/tagchip";
 import SubscribeButton from "src/components/SubscribeButton";
 import Layout from "src/layout";
 import "../assets/styles/article.css";
-import { title } from "../../config/site";
-import { image } from "../../config/site";
-import data from "../../content/images/images.json";
+
 
 const useStyles = makeStyles((theme) => ({
   avatarContainer: {
@@ -40,6 +35,10 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
     },
   },
+  image: {
+    maxWidth: "75%",
+    height: "100%",
+  }
 }));
 
 const Article = ({ data, pageContext, location }) => {
@@ -98,19 +97,10 @@ const Article = ({ data, pageContext, location }) => {
         {timeToRead + " min read"}
       </Typography>
       {/*Article Body*/}
-      <div className={classes.article-image}>
-        <ImageList className={classes.imageList} cols={1}>
-          {frontmatter.authors.map((i) => ( 
-            <ImageListItem key={i.image}>
-              <img src={i.image} alt={i.title} />
-              <ImageListItemBar
-              />
-            </ImageListItem>
-          ))}
-        </ImageList>
+      <div className={classes.image}>
+        <img src={frontmatter.image} alt=""/>
       </div>
       <div className={classes.main} id="article-body">
-        <Typography variant="h3">Hello World</Typography>
         <MDXRenderer>{body}</MDXRenderer>
         {/*Article Tags*/}
         <p>
@@ -173,6 +163,7 @@ export const query = graphql`
           display_name
           image
         }
+        image
       }
       timeToRead
       body

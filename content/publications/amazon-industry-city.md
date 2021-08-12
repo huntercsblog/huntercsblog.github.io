@@ -3,6 +3,7 @@ title: "Analysis: Was Industry City \"Amazon Headquarters 2.0\"?"
 date: 2020-11-01
 tags: ["NYC"]
 authors: ["max"]
+image: "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ik5KhK_BmIjs/v0/1800x-1.jpg"
 ---
 
 # Background
