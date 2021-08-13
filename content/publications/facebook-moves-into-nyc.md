@@ -3,6 +3,7 @@ title: Facebook Moves Into NYC
 date: 2020-08-07
 tags: ["NYC"]
 authors: ["max"]
+image: "https://static01.nyt.com/images/2020/08/03/nyregion/03nyfacebook-1/03nyfacebook-1-superJumbo.jpg?quality=90&auto=webp"
 ---
 
 Facebook on August 3 agreed to lease all the office space in the mammoth 107-year-old James A. Farley Building in Midtown Manhattan, cementing New York City as a growing global technology hub and reaffirming a major corporation’s commitment to an office-centric urban culture despite the pandemic.

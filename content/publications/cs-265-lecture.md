@@ -3,6 +3,7 @@ title: CS 265 Is Now A Large Lecture
 date: 2021-01-31
 tags: ["Hunter"]
 authors: ["max"]
+image: "https://teach.its.uiowa.edu/sites/teach.its.uiowa.edu/files/wysiwyg_uploads/classroom-lecture-lit-2.jpg"
 ---
 
 Another computer science core class has changed to the large lecture format. This semester, CSCI 265 Computer Theory I will be offered twice a week as a 200-student synchronous online lecture.

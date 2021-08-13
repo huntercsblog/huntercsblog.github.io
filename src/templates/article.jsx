@@ -9,8 +9,6 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { makeStyles } from "@material-ui/core/styles";
 import { Disqus } from 'gatsby-plugin-disqus';
-import SimpleImageSlider from "react-simple-image-slider";
-import Figure from 'react-bootstrap/Figure';
 
 import SEO from "src/components/SEO";
 import TagChip from "src/components/tagchip";
@@ -18,7 +16,6 @@ import SubscribeButton from "src/components/SubscribeButton";
 import Layout from "src/layout";
 import "../assets/styles/article.css";
 import { list } from "postcss";
-import FigureCaption from "react-bootstrap/esm/FigureCaption";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     display: "block",
-    width: "680px",
+    maxWidth: "800px",
+    maxHeight: "800px",
 		marginLeft: "auto",
 		marginRight: "auto",
   },
