@@ -85,7 +85,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     });
   });
-  
+
   documents.forEach(({ node }, index) => {
     const prev = index === documents.length - 1 ? null : documents[index + 1];
     const next = index === 0 ? null : documents[index - 1];
