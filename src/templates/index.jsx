@@ -6,6 +6,7 @@ import SubscribeButton from "../components/SubscribeButton";
 import Grid from "@material-ui/core/Grid";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import "../assets/styles/pagination.css";
 
 const IndexPage = ({ data, pageContext }) => {
   const recent = data.allMdx.edges;

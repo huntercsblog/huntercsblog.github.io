@@ -1,0 +1,8 @@
+#next, #prev {
+  color: #c68df3;
+  text-decoration: none;
+}
+
+#next:hover, #prev:hover {
+  text-decoration: underline;
+}

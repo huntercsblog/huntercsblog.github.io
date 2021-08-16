@@ -5,6 +5,7 @@ import ArticleList from "../components/article-list";
 import Grid from "@material-ui/core/Grid";
 import SubscribeButton from "../components/SubscribeButton";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import "../assets/styles/pagination.css";
 
 const Index = () => {
   const recent = useStaticQuery(graphql`
@@ -35,10 +36,10 @@ const Index = () => {
   return (
     <Layout>
       <ArticleList articles={recent} title="Latest News" />
-      <Grid container justify="space-between">
+      <Grid container justify="flex-end">
         <Grid item>
           <Grid container alignItems="center">
-            <Link to = "/2" color="textSecondary">Next Page</Link>
+            <Link to = "/2" id = "next">Next Page</Link>
             <ArrowForwardIcon />
           </Grid>
         </Grid>
