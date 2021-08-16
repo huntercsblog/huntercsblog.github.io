@@ -11,6 +11,7 @@ const Index = () => {
       allMdx(
         sort: { fields: frontmatter___date, order: DESC }
         filter: { fields: { collection: { eq: "publications" } } }
+        limit: 6
       ) {
         edges {
           node {
