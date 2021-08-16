@@ -3,7 +3,7 @@ import { graphql, useStaticQuery} from "gatsby";
 import Layout from "src/layout";
 import ArticleList from "../components/article-list";
 import SubscribeButton from "../components/SubscribeButton";
-
+import { StaticImage } from "gatsby-plugin-image"
 
 const Index = () => {
   const recent = useStaticQuery(graphql`
@@ -32,6 +32,12 @@ const Index = () => {
 
   return (
     <Layout>
+      <div>
+        <div>
+          image:
+        </div>
+        <StaticImage src="https://placekitten.com/800/600" alt="A kitten" />
+      </div>
       <ArticleList articles={recent} title="Latest News" />
       <SubscribeButton />
     </Layout>

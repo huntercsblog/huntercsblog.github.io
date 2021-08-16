@@ -152,4 +152,8 @@ module.exports = [
       trackingIds: ["G-678SPSLDGC"],
     }
   },
+  // pasted from https://www.gatsbyjs.com/plugins/gatsby-plugin-image/
+  `gatsby-plugin-image`,
+  `gatsby-plugin-sharp`,
+  `gatsby-transformer-sharp`, // Needed for dynamic images
 ];
