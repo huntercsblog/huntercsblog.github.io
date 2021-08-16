@@ -1,9 +1,10 @@
 import React from "react";
-import { graphql, useStaticQuery} from "gatsby";
+import { graphql, useStaticQuery, Link} from "gatsby";
 import Layout from "src/layout";
 import ArticleList from "../components/article-list";
+import Grid from "@material-ui/core/Grid";
 import SubscribeButton from "../components/SubscribeButton";
-
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 const Index = () => {
   const recent = useStaticQuery(graphql`
@@ -34,6 +35,14 @@ const Index = () => {
   return (
     <Layout>
       <ArticleList articles={recent} title="Latest News" />
+      <Grid container justify="space-between">
+        <Grid item>
+          <Grid container alignItems="center">
+            <Link to = "/2" color="textSecondary">Next Page</Link>
+            <ArrowForwardIcon />
+          </Grid>
+        </Grid>
+      </Grid>
       <SubscribeButton />
     </Layout>
   );

@@ -3,9 +3,9 @@ import { graphql, Link } from "gatsby";
 import Layout from "src/layout";
 import ArticleList from "../components/article-list";
 import SubscribeButton from "../components/SubscribeButton";
-
-import "../assets/styles/pagination.css";
-
+import Grid from "@material-ui/core/Grid";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 
 const IndexPage = ({ data, pageContext }) => {
   const recent = data.allMdx.edges;
@@ -18,16 +18,28 @@ const IndexPage = ({ data, pageContext }) => {
   return (
     <Layout>
       <ArticleList articles={recent} title="Latest News" />
-      {!isFirst && (
-        <Link to={prevPage} rel="prev" id = "prev">
-          ← Previous Page
-        </Link>
-      )}
-      {!isLast && (
-        <Link to={nextPage} rel="next" id = "next">
-          Next Page
-        </Link>
-      )}
+      <Grid container justify="space-between">
+        <Grid item>
+          {!isFirst && (
+            <Grid container alignItems="center">
+              <ArrowBackIcon />
+              <Link to={prevPage} rel="prev" id = "prev">
+                Previous Page
+              </Link>
+            </Grid>
+          )}
+        </Grid>
+        <Grid item>
+          {!isLast && (
+            <Grid container alignItems="center">
+            <Link to={nextPage} rel="next" id = "next">
+              Next Page
+            </Link>
+              <ArrowForwardIcon />
+            </Grid>
+          )}
+        </Grid>
+      </Grid>
       <SubscribeButton />
     </Layout>
   );
