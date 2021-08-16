@@ -25,7 +25,6 @@
     "fontsource-roboto": "^3.0.3",
     "fontsource-roboto-slab": "^3.0.3",
     "gatsby": "^2.24.23",
-    "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-disqus": "^1.2.2",
     "gatsby-plugin-feed": "^2.5.11",
     "gatsby-plugin-google-gtag": "^2.3.0",
