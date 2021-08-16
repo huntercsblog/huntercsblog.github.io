@@ -14,9 +14,9 @@ import SEO from "src/components/SEO";
 import TagChip from "src/components/tagchip";
 import SubscribeButton from "src/components/SubscribeButton";
 import Layout from "src/layout";
+import Figure from "../components/Figure"
+import urls from "../assets/image_urls/urls.js"
 import "../assets/styles/article.css";
-import { list } from "postcss";
-
 
 const useStyles = makeStyles((theme) => ({
   avatarContainer: {
@@ -36,18 +36,6 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
     },
   },
-  image: {
-    display: "block",
-    maxWidth: "800px",
-    maxHeight: "800px",
-		marginLeft: "auto",
-		marginRight: "auto",
-  },
-  imagecaption: {
-    textAlign: "center",
-    marginTop: "10px",
-    fontWeight: "bold",
-  },
 }));
 
 const Article = ({ data, pageContext, location }) => {
@@ -62,6 +50,13 @@ const Article = ({ data, pageContext, location }) => {
     identifier: pageContext.slug,
     title: frontmatter.title
   };
+
+const images = urls.map((item)=>{
+  return(
+   <Figure key = {item.id} className = {classes.image} item = {item} />
+  )
+})
+
   return (
     <Layout>
       <SEO title={frontmatter.title} description={excerpt} article={true} />
@@ -77,6 +72,9 @@ const Article = ({ data, pageContext, location }) => {
                 {a.username.substring(0, 1)}
               </Avatar>
             ))}
+          </div>
+          <div>
+            {images}
           </div>
         </Grid>
         {/*Author Names/Links*/}
@@ -105,11 +103,6 @@ const Article = ({ data, pageContext, location }) => {
         <time>{frontmatter.date}</time>&nbsp;&middot;&nbsp;
         {timeToRead + " min read"}
       </Typography>
-      {/*Article Image*/}
-      <figure>
-        <img className = {classes.image} src={frontmatter.image} alt=""/>
-        <figcaption className = {classes.imagecaption}>{frontmatter.caption}</figcaption>
-      </figure>
       {/*Article Body*/}
       <div className={classes.main} id="article-body">
         <MDXRenderer>{body}</MDXRenderer>
@@ -174,8 +167,6 @@ export const query = graphql`
           display_name
           image
         }
-        image
-        caption
       }
       timeToRead
       body
@@ -189,3 +180,4 @@ export const query = graphql`
 `;
 
 export default Article;
+
