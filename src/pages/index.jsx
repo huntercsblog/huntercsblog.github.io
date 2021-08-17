@@ -1,8 +1,9 @@
 import React from "react";
-import { graphql, useStaticQuery, Link} from "gatsby";
+import { graphql, useStaticQuery} from "gatsby";
 import Layout from "src/layout";
 import ArticleList from "../components/article-list";
-import Pagination from "../src/components/pagination.jsx"
+import SubscribeButton from "../components/SubscribeButton";
+import Pagination from "../components/pagination.jsx";
 
 const Index = () => {
   const recent = useStaticQuery(graphql`
