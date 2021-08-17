@@ -1,8 +1,25 @@
-#next, #prev {
-  color: #c68df3;
-  text-decoration: none;
+#pages {
+  text-align: center;
+  margin: 15px 0px 15px 0px;
 }
 
-#next:hover, #prev:hover {
-  text-decoration: underline;
+#links {
+  margin-left: 8px;
+  text-decoration: none;
+  text-align: center;
+  background-color: white;
+  padding: 10px;
+}
+
+#links:hover {
+  background-color: #f5f2f5;
+}
+
+#pagenumber {
+  color: black;
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
 }
