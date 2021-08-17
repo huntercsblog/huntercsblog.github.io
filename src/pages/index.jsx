@@ -3,7 +3,7 @@ import { graphql, useStaticQuery} from "gatsby";
 import Layout from "src/layout";
 import ArticleList from "../components/article-list";
 import SubscribeButton from "../components/SubscribeButton";
-
+import Pagination from "../components/pagination.jsx";
 
 const Index = () => {
   const recent = useStaticQuery(graphql`
@@ -11,6 +11,7 @@ const Index = () => {
       allMdx(
         sort: { fields: frontmatter___date, order: DESC }
         filter: { fields: { collection: { eq: "publications" } } }
+        limit: 6
       ) {
         edges {
           node {
@@ -33,6 +34,8 @@ const Index = () => {
   return (
     <Layout>
       <ArticleList articles={recent} title="Latest News" />
+      {/*pagination component, have to find a way to automatically get numPages*/}
+      <Pagination numPages = "2" />
       <SubscribeButton />
     </Layout>
   );
