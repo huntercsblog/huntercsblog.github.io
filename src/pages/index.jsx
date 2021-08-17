@@ -34,6 +34,7 @@ const Index = () => {
   return (
     <Layout>
       <ArticleList articles={recent} title="Latest News" />
+      {/*pagination component, have to find a way to automatically get numPages*/}
       <Pagination numPages = "2" />
       <SubscribeButton />
     </Layout>

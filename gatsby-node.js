@@ -74,6 +74,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const postsPerPage = 6;
   const numPages = Math.ceil(documents.length / postsPerPage);
   Array.from({ length: numPages }).forEach((_, i) => {
+    /*Creates a page for each index page*/
     createPage({
       path: i === 0 ? `/` : `/${i + 1}`,
       component: path.resolve("src/templates/index.jsx"),

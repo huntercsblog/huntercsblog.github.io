@@ -12,6 +12,7 @@ const IndexPage = ({ data, pageContext }) => {
   return (
     <Layout>
       <ArticleList articles={recent} title="Latest News" />
+      {/*Pagination Component*/}
       <Pagination numPages = {numPages}/>
       <SubscribeButton />
     </Layout>

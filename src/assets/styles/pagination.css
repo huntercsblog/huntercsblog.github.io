@@ -1,22 +1,29 @@
+/*For the entire page numbers*/
 #pages {
+  /*Centers the page numbers*/
   text-align: center;
   margin: 15px 0px 15px 0px;
 }
 
+/*For each link*/
 #links {
+  /*Adds space between each numbers*/
   margin-left: 8px;
+  padding: 10px;
   text-decoration: none;
   text-align: center;
   background-color: white;
-  padding: 10px;
 }
 
 #links:hover {
   background-color: #f5f2f5;
 }
 
+/*Styles the buttons*/
 #pagenumber {
+  /*Change the font color*/
   color: black;
+  /*Removes all the standard css for buttons*/
   border: none;
   background: none;
   cursor: pointer;
