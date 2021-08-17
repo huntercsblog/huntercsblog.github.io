@@ -2,10 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery, Link} from "gatsby";
 import Layout from "src/layout";
 import ArticleList from "../components/article-list";
-import Grid from "@material-ui/core/Grid";
-import SubscribeButton from "../components/SubscribeButton";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import "../assets/styles/pagination.css";
+import Pagination from "../src/components/pagination.jsx"
 
 const Index = () => {
   const recent = useStaticQuery(graphql`
@@ -36,14 +33,7 @@ const Index = () => {
   return (
     <Layout>
       <ArticleList articles={recent} title="Latest News" />
-      <Grid container justify="flex-end">
-        <Grid item>
-          <Grid container alignItems="center">
-            <Link to = "/2" id = "next">Next Page</Link>
-            <ArrowForwardIcon />
-          </Grid>
-        </Grid>
-      </Grid>
+      <Pagination numPages = "2" />
       <SubscribeButton />
     </Layout>
   );
