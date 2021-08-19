@@ -3,7 +3,7 @@ title: How Not to Spend Your First Semester as a CS Student
 date: 2020-09-01
 tags: ["Daedalus", "Hunter"]
 authors: ["saj"]
-image: "https://images.unsplash.com/photo-1610484826967-09c5720778c7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+image: ["https://images.unsplash.com/photo-1610484826967-09c5720778c7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"]
 ---
 
 As a service to the incoming freshman class, I’ve decided to provide a list of five things not to do during your first few semesters (which I’ve unearthed through many post-mortems of my own experiences). There are often greater insights to be found from self-proclaimed failures than from people who have proclaimed success.

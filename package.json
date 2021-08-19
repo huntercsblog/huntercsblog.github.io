@@ -41,9 +41,12 @@
     "moment": "^2.27.0",
     "prismjs": "^1.22.0",
     "react": "^16.13.1",
+    "react-alice-carousel": "^2.5.1",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
+    "react-icons": "^4.2.0",
+    "react-material-ui-carousel": "^2.3.1",
     "react-simple-image-slider": "^2.1.2"
   },
   "devDependencies": {},

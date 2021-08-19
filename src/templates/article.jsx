@@ -10,12 +10,14 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { makeStyles } from "@material-ui/core/styles";
 import { Disqus } from 'gatsby-plugin-disqus';
 
+
 import SEO from "src/components/SEO";
 import TagChip from "src/components/tagchip";
 import SubscribeButton from "src/components/SubscribeButton";
 import Layout from "src/layout";
 import "../assets/styles/article.css";
 import { list } from "postcss";
+import ImageSlider from "src/components/ImageSlider";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,17 +39,22 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   image: {
-    display: "block",
-    maxWidth: "800px",
-    maxHeight: "800px",
-		marginLeft: "auto",
-		marginRight: "auto",
+    width: "100%",
+    height: "500px",
+    objectFit: "cover",
   },
   imagecaption: {
     textAlign: "center",
     marginTop: "10px",
     fontWeight: "bold",
   },
+  imagelist: {
+    marginLeft: "auto",
+		marginRight: "auto",
+    flexWrap: 'nowrap',
+    transform: 'translateZ(0)',
+  },
+  
 }));
 
 const Article = ({ data, pageContext, location }) => {
@@ -62,6 +69,7 @@ const Article = ({ data, pageContext, location }) => {
     identifier: pageContext.slug,
     title: frontmatter.title
   };
+
   return (
     <Layout>
       <SEO title={frontmatter.title} description={excerpt} article={true} />
@@ -106,10 +114,8 @@ const Article = ({ data, pageContext, location }) => {
         {timeToRead + " min read"}
       </Typography>
       {/*Article Image*/}
-      <figure>
-        <img className = {classes.image} src={frontmatter.image} alt=""/>
-        <figcaption className = {classes.imagecaption}>{frontmatter.caption}</figcaption>
-      </figure>
+        { frontmatter.image != null && <ImageSlider images = {frontmatter.image} />}
+        {frontmatter.caption != null && <Typography variant="h6" className={classes.imagecaption}>{frontmatter.caption}</Typography>}
       {/*Article Body*/}
       <div className={classes.main} id="article-body">
         <MDXRenderer>{body}</MDXRenderer>

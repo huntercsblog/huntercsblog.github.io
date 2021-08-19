@@ -3,8 +3,8 @@ title: "Analysis: Was Industry City \"Amazon Headquarters 2.0\"?"
 date: 2020-11-01
 tags: ["NYC"]
 authors: ["max"]
-image: "https://cdn.geekwire.com/wp-content/uploads/2019/07/amazonHQ-1260x945.jpg"
-caption: "Amazon Buildings"
+image: ["https://cdn.geekwire.com/wp-content/uploads/2019/07/amazonHQ-1260x945.jpg"]
+caption: "Amazon Buildings in Construction"
 ---
 
 # Background
